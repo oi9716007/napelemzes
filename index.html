@@ -40,151 +40,142 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1320px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
-.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
-
-/* header */
-.top{display:flex;align-items:center;gap:12px;padding-block:18px}
-.badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-strong));color:#fff;display:grid;place-items:center;font:700 15px var(--display)}
-.wordmark{font:600 16px var(--display)}
-.top .meta{margin-left:auto;color:var(--ink-3);font-size:13px;text-align:right}
-.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:end;padding-block:18px 26px;border-bottom:1px solid var(--line)}
-.eyebrow{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--brand)}
-.hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin-top:8px}
-.hero p{color:var(--ink-2);max-width:62ch;margin:12px 0 0}
-.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.fact{background:var(--surface);padding:12px 14px}
-.fact b{display:block;font:600 19px var(--mono);font-variant-numeric:tabular-nums}
-.fact span{font-size:12px;color:var(--ink-3)}
-
-/* layout */
-.grid{display:grid;grid-template-columns:350px minmax(0,1fr);gap:24px;margin-top:24px;align-items:start}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
-.calc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);padding:18px;max-height:calc(100vh - 24px);overflow:auto}
-.calc h2{font-size:15px}
-.price{margin-top:12px;padding:14px;border-radius:12px;background:var(--brand-tint)}
-.price .lbl{font-size:12px;color:var(--ink-2)}
-.price .big{font:600 30px/1.15 var(--mono);color:var(--brand-strong);font-variant-numeric:tabular-nums;margin-top:2px}
-.price .rng{font:500 12px var(--mono);color:var(--ink-2);margin-top:4px}
-.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;margin-top:12px}
-.kv dt{color:var(--ink-2)} .kv dd{margin:0;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
-.kv .sum{border-top:1px solid var(--line);padding-top:6px;font-weight:600;color:var(--ink)}
-.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:14px;background:var(--line-2)}
-.stack i{display:block;height:100%}
-.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--ink-2);margin-top:8px}
-.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:var(--c);vertical-align:0}
-.ctl{margin-top:16px;display:grid;gap:12px}
-.ctl label{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2)}
-.ctl label output{font-family:var(--mono);color:var(--ink)}
-input[type=range]{width:100%;accent-color:var(--brand)}
-.seg{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:3px}
-.seg button{flex:1;border:0;background:none;border-radius:999px;padding:5px 0;font-size:13px;cursor:pointer;color:var(--ink-2)}
-.seg button[aria-pressed=true]{background:var(--brand);color:#fff}
-.note{font-size:12px;color:var(--ink-3);margin-top:12px;line-height:1.45}
-
-/* tabs */
-.tabs{display:flex;gap:4px;padding:6px;border-bottom:1px solid var(--line);overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--surface);border-radius:16px 16px 0 0;z-index:2}
-.tabs button{border:0;background:none;padding:9px 14px;border-radius:10px;cursor:pointer;white-space:nowrap;color:var(--ink-2);font-weight:500;font-size:14px}
-.tabs button[aria-selected=true]{background:var(--brand-tint);color:var(--brand-strong)}
-.tabs .cnt{font:500 11px var(--mono);margin-left:6px;padding:1px 6px;border-radius:999px;background:var(--line-2);color:var(--ink-2)}
-.pane{padding:22px}
-.pane h2{font-size:21px}
-.pane h3{font-size:15px;margin-bottom:8px}
-.lead{color:var(--ink-2);max-width:72ch;margin:6px 0 18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface-2)}
-.card ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px}
-.card li{margin:3px 0}
-.card li b{color:var(--ink);font-weight:600}
 .src{font:500 11px var(--mono);color:var(--ink-3)}
 
-/* gap list */
-.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer;color:var(--ink-2)}
-.chip[aria-pressed=true]{border-color:var(--brand);color:var(--brand-strong);background:var(--brand-tint)}
-.gap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:start;padding:14px 0;border-top:1px solid var(--line-2)}
-.gap:first-of-type{border-top:0}
-.sev{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:3px 8px;border-radius:6px;white-space:nowrap}
-.sev.crit{background:var(--crit-tint);color:var(--crit)} .sev.warn{background:var(--warn-tint);color:var(--warn)} .sev.info{background:var(--brand-tint);color:var(--brand-strong)}
-.gap h4{margin:0;font:600 15px var(--body)}
-.gap p{margin:4px 0 0;color:var(--ink-2);font-size:14px}
-.gap .cost{text-align:right;font-family:var(--mono);font-size:13px;min-width:150px}
-.gap .cost b{display:block;font-size:15px;color:var(--ink)}
-.gap .cost small{color:var(--ink-3)}
-.sw{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:12px;color:var(--ink-2);cursor:pointer;justify-content:flex-end}
-.sw input{accent-color:var(--missing);width:16px;height:16px}
+/* ---------- váz ---------- */
+.app{height:100%;max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:10px;padding-inline:16px;padding-block:10px}
+.bar{flex:none;display:flex;align-items:center;gap:14px;min-width:0}
+.badge{flex:none;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-strong));color:#fff;display:grid;place-items:center;font:700 14px var(--display)}
+.bar .ttl{min-width:0}
+.bar .eyebrow{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--brand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar h1{font-size:18px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.facts{margin-left:auto;display:flex;gap:6px;flex:none}
+.fact{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--ink-2);white-space:nowrap}
+.fact b{font:600 12.5px var(--mono);color:var(--ink);margin-right:4px}
+.main{flex:1;min-height:0;display:grid;grid-template-columns:318px minmax(0,1fr);gap:12px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
 
-.conf{width:100%;border-collapse:collapse;font-size:14px}
-.conf th{font:600 12px var(--body);text-align:left;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--line)}
-.conf td{padding:10px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2)}
-.conf td:first-child{color:var(--ink);font-weight:600;min-width:140px}
-.scroll{overflow-x:auto}
-
-/* budget table */
-.btools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
-.btools input[type=search]{flex:1;min-width:200px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px}
-.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:500}
+/* ---------- árpanel ---------- */
+.calc{min-height:0;overflow:auto;overscroll-behavior:contain;padding:14px 16px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+.calc .ch{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.calc h2{font-size:14px}
+.price{padding:10px 12px;border-radius:12px;background:var(--brand-tint)}
+.price .lbl{font-size:11.5px;color:var(--ink-2)}
+.price .big{font:600 26px/1.15 var(--mono);color:var(--brand-strong);font-variant-numeric:tabular-nums}
+.price .rng{font:500 11.5px var(--mono);color:var(--ink-2)}
+.kv{display:grid;grid-template-columns:1fr auto;gap:1px 10px;font-size:12.5px;margin:0}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.kv .sum{border-top:1px solid var(--line);padding-top:3px;margin-top:2px;font-weight:600;color:var(--ink)}
+.stack{display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--line-2)}
+.stack i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:3px 10px;font-size:11px;color:var(--ink-2);margin-top:5px}
+.legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:var(--c)}
+.ctl{display:grid;gap:6px}
+.ctl label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-2)}
+.ctl label output{font-family:var(--mono);color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--brand);margin:0}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:none;border-radius:999px;padding:3px 0;font-size:12.5px;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed=true]{background:var(--brand);color:#fff}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap}
 .btn.pri{background:var(--brand);border-color:var(--brand);color:#fff}
-details.ch{border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--surface)}
-details.ch summary{list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 14px;cursor:pointer}
-details.ch summary::-webkit-details-marker{display:none}
-details.ch summary::before{content:"›";font:600 18px var(--body);color:var(--ink-3);transition:transform .15s}
-details.ch[open] summary::before{transform:rotate(90deg)}
-.ch .ws{font:500 11px var(--mono);color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
-.ch .nm{font-weight:600}
-.ch .tt{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
-.ch .tt small{display:block;color:var(--ink-3);font-size:11px}
-table.items{width:100%;border-collapse:collapse;font-size:13px;min-width:860px}
-.items th{position:sticky;top:0;background:var(--surface-2);font:600 11px var(--body);color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;text-align:right;padding:7px 8px;border-bottom:1px solid var(--line)}
-.items th:nth-child(1),.items th:nth-child(2){text-align:left}
-.items td{padding:7px 8px;border-bottom:1px solid var(--line-2);vertical-align:top}
-.items td.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.items .code{font:11px var(--mono);color:var(--ink-3);white-space:nowrap}
-.items .t{color:var(--ink);max-width:460px}
-.items .t .sub{font:500 11px var(--mono);color:var(--brand);display:block}
-.items .t .flag{display:block;margin-top:3px;font-size:12px;color:var(--warn)}
-.items input{width:86px;text-align:right;border:1px solid transparent;background:var(--surface-2);border-radius:6px;padding:3px 6px;font:12px var(--mono)}
-.items input:hover{border-color:var(--line)} .items input:focus{border-color:var(--brand);background:var(--surface)}
-.items input.q{width:74px}
-.items tr.zero td{opacity:.55}
+.qzbadge{font:500 11px var(--mono);background:rgba(255,255,255,.2);padding:2px 7px;border-radius:999px;margin-left:6px}
+details.how{font-size:12px;color:var(--ink-3)}
+details.how summary{cursor:pointer;color:var(--ink-2)}
+details.how p{margin:6px 0 0;line-height:1.45}
+.calcToggle{display:none}
 
-/* docs */
-.doc td:nth-child(3){font-family:var(--mono);text-align:right}
-.pill{display:inline-block;font:500 11px var(--mono);padding:2px 7px;border-radius:999px;white-space:nowrap}
-.pill.ok{background:var(--ok-tint);color:var(--ok)} .pill.scan{background:var(--warn-tint);color:var(--warn)} .pill.none{background:var(--crit-tint);color:var(--crit)}
-ol.steps{margin:0;padding-left:20px;display:grid;gap:10px}
-ol.steps li{padding-left:4px}
-ol.steps li b{display:block}
-ol.steps li span{color:var(--ink-2);font-size:14px}
-.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+/* ---------- munkaterület ---------- */
+.work{min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.tabs{flex:none;display:flex;gap:3px;padding:6px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{border:0;background:none;padding:7px 12px;border-radius:10px;cursor:pointer;white-space:nowrap;color:var(--ink-2);font-weight:500;font-size:13.5px}
+.tabs button[aria-selected=true]{background:var(--brand-tint);color:var(--brand-strong)}
+.tabs .cnt{font:500 10.5px var(--mono);margin-left:5px;padding:1px 6px;border-radius:999px;background:var(--line-2);color:var(--ink-2)}
+.views{flex:1;min-height:0;position:relative}
+.view{position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;padding:12px 14px 14px}
+.view[hidden]{display:none!important}
+.vh{flex:none;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.vh h2{font-size:17px}
+.vh p{margin:0;color:var(--ink-2);font-size:13px;flex:1;min-width:240px}
+
+/* lenyitható téma-fülek */
+.acc{flex:1;min-height:0;display:flex;flex-direction:column;gap:4px}
+.sec{flex:none;display:flex;flex-direction:column;min-height:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .2s}
+.sec.open{flex:1 1 auto;border-color:color-mix(in srgb,var(--brand) 55%,var(--line));background:var(--surface-2)}
+.sh{flex:none;display:grid;grid-template-columns:24px minmax(0,auto) minmax(0,1fr) auto 16px;gap:10px;align-items:center;width:100%;border:0;background:none;padding:5px 12px;cursor:pointer;text-align:left;border-radius:14px;min-height:36px}
+.sh .ic{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:var(--brand-tint);color:var(--brand-strong);font:600 11.5px var(--mono)}
+.sh .nm{font:600 13.5px var(--display);white-space:nowrap}
+.sh .sm{font-size:12px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh .tag{font:500 11.5px var(--mono);color:var(--ink-2);white-space:nowrap}
+.sh .chev{color:var(--ink-3);transition:transform .2s}
+.sec.open .sh .chev{transform:rotate(90deg)}
+.sb{display:none}
+.sec.open .sb{display:grid;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;grid-template-columns:repeat(auto-fill,minmax(min(100%,var(--bw,250px)),1fr));gap:8px;align-content:start;padding:2px 10px 10px;scrollbar-width:thin}
+
+/* buborékok */
+.bub{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:8px 12px;display:flex;flex-direction:column;gap:3px;min-width:0;animation:pop .22s ease both}
+@keyframes pop{from{transform:translateY(3px);opacity:.5}to{transform:none;opacity:1}}
+.bub .v{font:600 16px/1.2 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.bub .l{font-size:12.5px;color:var(--ink-2);line-height:1.35}
+.bub .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.bub h4{font:600 13.5px/1.3 var(--body)}
+.bub p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+.clamp.full{-webkit-line-clamp:unset}
+.sev{font:600 10.5px var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.sev.crit{background:var(--crit-tint);color:var(--crit)} .sev.warn{background:var(--warn-tint);color:var(--warn)} .sev.info{background:var(--brand-tint);color:var(--brand-strong)}
+.cost{font:600 13px var(--mono);white-space:nowrap}
+.cost small{font-weight:400;color:var(--ink-3);margin-left:4px}
+.sw{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.sw input{accent-color:var(--missing);width:15px;height:15px;margin:0}
+.bub.off{opacity:.62}
+.kvb{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;font-size:12.5px;margin:0}
+.kvb dt{color:var(--ink-3)} .kvb dd{margin:0;color:var(--ink-2)}
+.pill{display:inline-block;font:500 10.5px var(--mono);padding:2px 7px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-tint);color:var(--ok)} .pill.scan{background:var(--warn-tint);color:var(--warn)} .pill.none{background:var(--crit-tint);color:var(--crit)} .pill.imp{background:var(--missing-tint);color:var(--missing)}
+.stepn{width:24px;height:24px;border-radius:8px;background:var(--brand);color:#fff;display:grid;place-items:center;font:600 12px var(--mono)}
+
+/* tételes költségvetés */
+.btools{flex:1;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.btools input[type=search]{flex:1;min-width:180px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px}
+.sec.open .budbody{display:flex;flex-direction:column;gap:8px}
+.cchips{flex:none;display:flex;flex-wrap:wrap;gap:5px}
+.cchip{border:1px solid var(--line);background:var(--surface);border-radius:12px 12px 12px 3px;padding:4px 10px;cursor:pointer;text-align:left;font-size:12.5px;line-height:1.25}
+.cchip small{display:block;font:500 10.5px var(--mono);color:var(--ink-3)}
+.cchip[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:#fff}
+.cchip[aria-pressed=true] small{color:rgba(255,255,255,.8)}
+.tw{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table.items{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px}
+.items th{position:sticky;top:0;z-index:1;background:var(--surface-2);font:600 10.5px var(--body);color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+.items th:nth-child(1),.items th:nth-child(2){text-align:left}
+.items td{padding:5px 8px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.items td.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.items .code{font:10.5px var(--mono);color:var(--ink-3);white-space:nowrap}
+.items .t{color:var(--ink);max-width:460px}
+.items .t .sub{font:500 10.5px var(--mono);color:var(--brand);display:block}
+.items .t .flag{display:block;margin-top:2px;font-size:11.5px;color:var(--warn)}
+.items input{width:84px;text-align:right;border:1px solid transparent;background:var(--surface-2);border-radius:6px;padding:2px 6px;font:12px var(--mono)}
+.items input:hover{border-color:var(--line)} .items input:focus{border-color:var(--brand);background:var(--surface)}
+.items input.q{width:70px}
+.items tr.zero td{opacity:.55}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:60}
 .toast.on{opacity:1}
 
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
-  .calc{position:static;max-height:none}
-}
-@media (max-width:560px){
-  .wrap{padding-inline:16px}
-  .gap{grid-template-columns:1fr}
-  .gap .cost{text-align:left}
-  .sw{justify-content:flex-start}
-  .top .meta{display:none}
-  .pane{padding:16px}
-}
-
-/* pontosító widget */
-.qzbadge{font:500 11px var(--mono);background:rgba(255,255,255,.2);padding:2px 7px;border-radius:999px;margin-left:6px}
-.qzfab{position:fixed;right:20px;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);z-index:30;display:flex;align-items:center;gap:10px;border:0;cursor:pointer;background:var(--brand);color:#fff;border-radius:999px;padding:12px 18px 12px 14px;box-shadow:0 8px 28px rgba(24,87,230,.35);font-weight:600;font-size:14px}
-.qzfab .ring{width:30px;height:30px}
+/* ---------- pontosító widget (lépésenkénti) ---------- */
+html.qz-lock,html.qz-lock body{overflow:hidden}
+.qzfab{position:fixed;right:22px;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);z-index:30;display:flex;align-items:center;gap:10px;border:0;cursor:pointer;background:var(--brand);color:#fff;border-radius:999px;padding:10px 16px 10px 12px;box-shadow:0 8px 28px rgba(24,87,230,.35);font-weight:600;font-size:13.5px}
+.qzfab .ring{width:28px;height:28px}
 .qzfab small{display:block;font:500 11px var(--mono);opacity:.85;text-align:left}
-.qz{position:fixed;inset:0;z-index:40;background:rgba(6,12,22,.45);display:grid;place-items:center;padding:16px}
+.qz{position:fixed;inset:0;z-index:40;background:rgba(6,12,22,.45);display:grid;place-items:center;padding:16px;overscroll-behavior:contain}
 .qz[hidden]{display:none!important}
-.qzbox{width:min(680px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.qzbox{width:min(680px,100%);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.35);display:flex;flex-direction:column}
 .qzhead{padding:18px 20px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1}
 .qzhead .row{display:flex;align-items:center;gap:10px}
 .qzhead h2{font-size:16px}
@@ -228,41 +219,74 @@ ol.steps li span{color:var(--ink-2);font-size:14px}
 .checks{display:grid;gap:8px;margin-top:16px}
 .checks label{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;background:var(--surface-2)}
 .checks input{width:18px;height:18px;accent-color:var(--brand)}
-@media (max-width:560px){
+
+/* ---------- keskeny képernyő ---------- */
+@media (max-width:1180px){ .facts .fact:nth-child(n+3){display:none} }
+@media (max-width:920px){
+  .app{padding-inline:10px;padding-block:8px;gap:8px}
+  .facts{display:none}
+  .bar h1{font-size:15px}
+  .main{display:flex;flex-direction:column;position:relative;gap:8px}
+  .calc{flex:none;overflow:hidden;padding:8px 12px;gap:8px;border-radius:14px}
+  .calc > :not(.ch){display:none}
+  .calc.exp{position:absolute;inset:0;z-index:20;overflow:auto}
+  .calc.exp > .price,.calc.exp > div{display:block}
+  .calc.exp > .kv,.calc.exp > .ctl{display:grid}
+  .calc.exp > .btn{display:block}
+  .calc.exp > details{display:block}
+  .calcToggle{display:inline-flex}
+  .calc .ch .mini{font:600 15px var(--mono);color:var(--brand-strong);margin-left:auto}
+  .work{flex:1;min-height:0}
+  .view{padding:10px}
+  .vh p{display:none}
+  .vh h2{display:none}
+  .vh:not(:has(.btools)){display:none}
+  .view{gap:6px}
+  .sh{grid-template-columns:24px minmax(0,1fr) auto 14px}
+  .sh .sm{display:none}
+  .sh .nm{overflow:hidden;text-overflow:ellipsis;font-size:13px}
+  .sh .tag{max-width:38vw;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
+  .sec.open .sb{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:2px 8px 8px}
+  .bub{padding:7px 10px}
+  .bub .v{font-size:14px}
+  .bub .l{font-size:11.5px}
+  .sec.open .sb.swipe{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;scrollbar-width:none}
+  .sb.swipe::-webkit-scrollbar{display:none}
+  .sb.swipe .bub{flex:0 0 86%;scroll-snap-align:center}
+  .cchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .cchip{flex:none}
+  .btools .btn{padding:5px 10px;font-size:12px}
+  .next-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qzfab{right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);padding:8px 12px 8px 8px}
+  .qzfab > span{display:none}
+  .opt{grid-template-columns:minmax(0,1fr) auto}.opt kbd{display:none}
   .qz{padding:0;place-items:end stretch}
   .qzbox{border-radius:20px 20px 0 0;max-height:92dvh}
-  .qzfab{right:16px;left:16px;justify-content:center}
-  .opt{grid-template-columns:minmax(0,1fr) auto}.opt kbd{display:none}
 }
-
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (min-width:921px){ .calc .ch .mini{display:none} .qzfab{display:none} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
-<div class="wrap">
-  <header class="top">
-    <div class="badge">oi</div><div class="wordmark">oiSystem</div>
-    <div class="meta">NAP Viktor · ajánlatkérés 1<br>elemzés: 2026. 09. 16.</div>
-  </header>
-
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Bp. III., Tarhos utca 20 · hrsz 21899/7</div>
+<div class="app">
+  <header class="bar">
+    <div class="badge">oi</div>
+    <div class="ttl">
+      <div class="eyebrow">oiSystem · Bp. III., Tarhos utca 20 · hrsz 21899/7</div>
       <h1>Kétlakásos lakóépület – tervelemzés és költségbecslés</h1>
-      <p>Engedélyes szintű tervcsomag és két árazatlan kiírás (szerkezet + befejező szakasz). Az oldal tételesen beárazza a kiírásokat, megmutatja, mi olvasható ki a tervekből, és felméri, mi hiányzik ahhoz, hogy a teljes épületre pontos ár adható legyen.</p>
     </div>
     <div class="facts">
-      <div class="fact"><b>329,92 m²</b><span>nettó alapterület (A 180,83 + B 150,05)</span></div>
-      <div class="fact"><b>415,56 m²</b><span>bruttó szintterület, 3 szint</span></div>
-      <div class="fact"><b>217 tétel</b><span>2 kiírásban, 21 munkanem</span></div>
-      <div class="fact"><b>13,4 %</b><span>telekesés, kövér agyag, „D” terület</span></div>
+      <span class="fact"><b>329,92 m²</b>nettó</span>
+      <span class="fact"><b>415,56 m²</b>bruttó</span>
+      <span class="fact"><b>217</b>tétel</span>
+      <span class="fact"><b>13,4 %</b>telekesés</span>
     </div>
-  </section>
+  </header>
 
-  <div class="grid">
-    <aside class="panel calc" aria-label="Árkalkulátor">
-      <h2>Becsült vállalási ár</h2>
+  <div class="main">
+    <aside class="panel calc" id="calc" aria-label="Árkalkulátor">
+      <div class="ch"><h2>Becsült ár</h2><span class="mini" id="pMini">–</span><button class="btn calcToggle" type="button" id="calcToggle" aria-expanded="false">Részletek</button></div>
       <div class="price">
-        <div class="lbl" id="priceLbl">nettó, teljes épület</div>
+        <div class="lbl">nettó vállalási ár, teljes épület</div>
         <div class="big" id="pNet">–</div>
         <div class="rng" id="pRange">–</div>
       </div>
@@ -275,170 +299,74 @@ ol.steps li span{color:var(--ink-2);font-size:14px}
         <dt class="sum">Nettó összesen</dt><dd class="sum" id="kN">–</dd>
         <dt>ÁFA</dt><dd id="kV">–</dd>
         <dt class="sum">Bruttó</dt><dd class="sum" id="kBr">–</dd>
-        <dt>Nettó / m² (329,92 m²)</dt><dd id="kM2">–</dd>
+        <dt>Nettó / m²</dt><dd id="kM2">–</dd>
       </dl>
-      <div class="stack" id="stack" aria-hidden="true"></div>
-      <div class="legend">
-        <span style="--c:var(--brand)">szerkezet</span>
-        <span style="--c:var(--amber)">befejező</span>
-        <span style="--c:var(--missing)">hiányzó</span>
-        <span style="--c:var(--ink-3)">tartalék + fedezet</span>
+      <div>
+        <div class="stack" id="stack" aria-hidden="true"></div>
+        <div class="legend"><span style="--c:var(--brand)">szerkezet</span><span style="--c:var(--amber)">befejező</span><span style="--c:var(--missing)">hiányzó</span><span style="--c:var(--ink-3)">tartalék + fedezet</span></div>
       </div>
       <div class="ctl">
-        <div>
-          <label for="rLevel">Árszint <output id="oLevel">1,00×</output></label>
-          <input type="range" id="rLevel" min="0.85" max="1.2" step="0.01" value="1">
-        </div>
-        <div>
-          <label for="rRes">Tartalékkeret <output id="oRes">7 %</output></label>
-          <input type="range" id="rRes" min="0" max="15" step="1" value="7">
-        </div>
-        <div>
-          <label for="rGk">Generálkivitelezői fedezet <output id="oGk">8 %</output></label>
-          <input type="range" id="rGk" min="0" max="20" step="1" value="8">
-        </div>
-        <div>
-          <label>ÁFA-kulcs</label>
-          <div class="seg" id="vat" role="group" aria-label="ÁFA-kulcs">
-            <button type="button" data-v="0.27" aria-pressed="true">27 %</button>
-            <button type="button" data-v="0.05" aria-pressed="false">5 %</button>
-            <button type="button" data-v="0" aria-pressed="false">nettó</button>
-          </div>
+        <label for="rLevel">Árszint <output id="oLevel">1,00×</output></label>
+        <input type="range" id="rLevel" min="0.85" max="1.2" step="0.01" value="1">
+        <label for="rRes">Tartalékkeret <output id="oRes">7 %</output></label>
+        <input type="range" id="rRes" min="0" max="15" step="1" value="7">
+        <label for="rGk">Generálkivitelezői fedezet <output id="oGk">8 %</output></label>
+        <input type="range" id="rGk" min="0" max="20" step="1" value="8">
+        <div class="seg" id="vat" role="group" aria-label="ÁFA-kulcs">
+          <button type="button" data-v="0.27" aria-pressed="true">ÁFA 27 %</button>
+          <button type="button" data-v="0.05" aria-pressed="false">5 %</button>
+          <button type="button" data-v="0" aria-pressed="false">nettó</button>
         </div>
       </div>
-      <button class="btn pri qzopen" type="button" data-qzopen style="width:100%;margin-top:16px">Pontosító kérdések <span class="qzbadge" data-qzw>–</span></button>
-      <p class="note">Az egységárak 2026-os budapesti piaci, alvállalkozói szintű irányárak (anyag + díj). A sáv a hiányzó munkanemek min–max becsléséből és a kiírt tételek bizonytalanságából (kezdetben ±8 %) adódik. A hiányzó tételek a „Hiányosságok” fülön kapcsolhatók.</p>
+      <button class="btn pri" type="button" data-qzopen>Pontosító kérdések <span class="qzbadge" data-qzw>–</span></button>
+      <details class="how"><summary>Hogyan számol?</summary><p>Az egységárak 2026-os budapesti piaci, alvállalkozói szintű irányárak (anyag + díj). A sáv a hiányzó munkanemek min–max becsléséből és a kiírt tételek bizonytalanságából (kezdetben ±8 %) adódik. A hiányzó tételek a „Hiányosságok” fülön kapcsolhatók, a pontosító kérdések szűkítik a sávot.</p></details>
     </aside>
 
-    <main class="panel">
+    <section class="panel work">
       <nav class="tabs" role="tablist" aria-label="Fejezetek">
-        <button role="tab" id="t-ov" aria-selected="true" data-pane="ov">Kiolvasható adatok</button>
-        <button role="tab" id="t-gap" aria-selected="false" data-pane="gap">Hiányosságok <span class="cnt" id="gapCnt">0</span></button>
-        <button role="tab" id="t-conf" aria-selected="false" data-pane="conf">Ellentmondások <span class="cnt" id="confCnt">0</span></button>
-        <button role="tab" id="t-bud" aria-selected="false" data-pane="bud">Tételes költségvetés <span class="cnt">217</span></button>
-        <button role="tab" id="t-doc" aria-selected="false" data-pane="doc">Dokumentumok <span class="cnt">23</span></button>
-        <button role="tab" id="t-next" aria-selected="false" data-pane="next">Következő lépések</button>
+        <button role="tab" aria-selected="true" data-view="ov">Kiolvasható adatok</button>
+        <button role="tab" aria-selected="false" data-view="gap">Hiányosságok <span class="cnt" id="gapCnt">0</span></button>
+        <button role="tab" aria-selected="false" data-view="conf">Ellentmondások <span class="cnt" id="confCnt">0</span></button>
+        <button role="tab" aria-selected="false" data-view="bud">Tételes költségvetés <span class="cnt">217</span></button>
+        <button role="tab" aria-selected="false" data-view="doc">Dokumentumok <span class="cnt">23</span></button>
+        <button role="tab" aria-selected="false" data-view="next">Következő lépések</button>
       </nav>
-
-      <!-- OVERVIEW -->
-      <section class="pane" id="ov" role="tabpanel" aria-labelledby="t-ov">
-        <h2>Mi olvasható ki a tervekből</h2>
-        <p class="lead">A mennyiségek és műszaki tartalom forrásai. Ahol több dokumentum ugyanarról szól, a forrás mindig jelölve van – az eltéréseket az „Ellentmondások” fül gyűjti.</p>
-        <div class="cards">
-          <div class="card"><h3>Telek és beépítés</h3><ul>
-            <li><b>1 063 m²</b> telek, Lke-2/SZ-IK-1, szabadon álló</li>
-            <li>Beépítés <b>209,54 m²</b> (19,71 %), terepszint alatt 72,97 m²</li>
-            <li>Lejtés 13,4 % DNy felé; ±0,00 = <b>135,250 mBf</b></li>
-            <li>Épületmagasság 4,87 m (max. 5,0 m), zöldfelület 65,1 %</li>
-            <li>Közút felőli szabályozás, 3 m oldalkert</li>
-          </ul><div class="src">É_Műszaki leírás · Geo leírás</div></div>
-          <div class="card"><h3>Program és területek</h3><ul>
-            <li><b>2 önálló lakás</b>: A = 180,83 m², B = 150,05 m² nettó</li>
-            <li>Bruttó: pince 111,50 + parkoló 58,72 + fsz. 168,39 + emelet 76,95 m²</li>
-            <li>Teraszok 57,35 + 35,66 m², erkély 11,63 m²</li>
-            <li>2 garázs a pinceszinten, <b>20 %-os fűtött rámpa</b></li>
-            <li>3 lépcső: 15, 16 és 16 fokos (47 fok összesen)</li>
-          </ul><div class="src">É_Műszaki leírás · A.01.4–A.01.6</div></div>
-          <div class="card"><h3>Tartószerkezet</h3><ul>
-            <li>Vasalt <b>sávalap, alapsík min. 2,0 m</b> a rendezett terep alatt</li>
-            <li>Pince külső fal: <b>25 cm monolit vb.</b>, kétoldali vasalás</li>
-            <li>Teherhordó fal: Porotherm 30 N+F, vb. falvázpillérek</li>
-            <li>Födémek: pince feletti és közbenső <b>25 cm</b>, zárófödém 20 cm, tört síkú lejtésben</li>
-            <li>Beton C30/37 (alap: XC3-XA1), betonacél B500B</li>
-          </ul><div class="src">T_Tartószerkezeti leírás (M00)</div></div>
-          <div class="card"><h3>Talaj és geotechnika</h3><ul>
-            <li>Kövér agyag, <b>D-4 – nagyon térfogatváltozó</b>, nem tömöríthető (T-4)</li>
-            <li>Talajvíz mélyen (122–124 mBf), de <b>rétegvíz</b> várható → szivárgó kell</li>
-            <li>ÓBÉSZ: „D” kategória, <b>felszínmozgás-veszélyes</b> terület</li>
-            <li>A telek <b>régészeti lelőhelyen</b> fekszik</li>
-            <li>Merev, dobozszerű pinceszerkezet javasolt (vasalt zsalukő / vb.)</li>
-          </ul><div class="src">TVJ A-26-227 · Településképi vélemény</div></div>
-          <div class="card"><h3>Épületfizika</h3><ul>
-            <li>Közel nulla energiaigényű: <b>71,84 kWh/m²a</b> (köv. 76,00), „A” besorolás</li>
-            <li>Külső fal U = 0,161; ablak U = 1,1; tetők U = 0,163–0,184 W/m²K</li>
-            <li>Ablak <b>88,9 m²</b>, külső ajtó 6,3 m², garázskapu 13,2 m²</li>
-            <li>Külső fal 237,4 m², tetők 244,8 m² (ebből zöldtető 189,7 m²)</li>
-            <li>Nyári hővédelem <b>külső árnyékolással</b> számolva (g = 0,10)</li>
-          </ul><div class="src">G_Energetika (WinWatt)</div></div>
-          <div class="card"><h3>Gépészet és villany</h3><ul>
-            <li>Lakásonként <b>levegő-víz hőszivattyú</b>, hőigény összesen 17,8 kW</li>
-            <li>HMV-tároló lakásonként, 6 kW patronnal; cirkuláció</li>
-            <li>Padlófűtés + fan-coil, fürdőben elektromos törölközőszárító</li>
-            <li>Esővíz: 5 m³ tározó / szikkasztó, 224 m² tetőfelület</li>
-            <li>Villany: 2 × 3×25 A + H-tarifa 3×20 A, közös 1×16 A; villámvédelem kiviteli tervben</li>
-          </ul><div class="src">G_Műszaki leírás · E_Műszaki leírás</div></div>
-          <div class="card"><h3>A két árazatlan kiírás</h3><ul>
-            <li>Szerkezet: <b>9 munkanem, 74 tétel</b> – ÁFA-kulcs üres</li>
-            <li>Befejező: <b>12 munkanem, 143 tétel</b> – 5 % ÁFA-val</li>
-            <li>Nincs benne: <b>gépészet, villany, sávalap, szivárgó, korlát, árnyékolás</b></li>
-            <li>A szerkezeti fájl <b>rejtett F–G oszlopaiban régi egységárak</b> maradtak (pl. beton 21 847 Ft/m³, betonacél 267 637 Ft/t) – kiküldés előtt törölni</li>
-          </ul><div class="src">*.xls</div></div>
-          <div class="card"><h3>Hatósági keret</h3><ul>
-            <li>Településképi vélemény: <b>feltétel nélkül javasolt</b> (2026. 06. 24.)</li>
-            <li>Számított érték: 600 000 Ft/m² × 330 m² = 198 M Ft – <b>hatósági szám, nem piaci ár</b></li>
-            <li>Engedélyes szint: a statika, a gépészet és a villany is kiviteli tervre hivatkozik</li>
-          </ul><div class="src">I-334-22/2026 · É_Műszaki leírás</div></div>
-        </div>
-      </section>
-
-      <!-- GAPS -->
-      <section class="pane" id="gap" role="tabpanel" aria-labelledby="t-gap" hidden>
-        <h2>Hiányosságok – ami nincs a kiírásban</h2>
-        <p class="lead">Ezek a munkák a tervek szerint kellenek, de a két kiírás nem tartalmazza őket, vagy csak jelképes mennyiséggel. Mindegyikhez min–várható–max becslés tartozik; a kapcsolóval ki- vagy bevehető a becsült árból.</p>
-        <div class="filters" id="gapFilters" role="group" aria-label="Szűrés">
-          <button class="chip" data-f="all" aria-pressed="true">Mind</button>
-          <button class="chip" data-f="crit" aria-pressed="false">Kritikus</button>
-          <button class="chip" data-f="warn" aria-pressed="false">Jelentős</button>
-          <button class="chip" data-f="info" aria-pressed="false">Hatókör-kérdés</button>
-        </div>
-        <div id="gapList"></div>
-      </section>
-
-      <!-- CONFLICTS -->
-      <section class="pane" id="conf" role="tabpanel" aria-labelledby="t-conf" hidden>
-        <h2>Ellentmondások a dokumentumok között</h2>
-        <p class="lead">Ugyanarra a szerkezetre eltérő anyagot vagy méretet ad meg két dokumentum. Árazás előtt mindegyiket a tervezővel kell eldönteni – a táblázat mutatja, melyik változattal számol most a becslés.</p>
-        <div class="scroll"><table class="conf"><thead><tr><th>Téma</th><th>Mit mondanak a dokumentumok</th><th>A becslés most</th><th>Árhatás</th></tr></thead><tbody id="confBody"></tbody></table></div>
-      </section>
-
-      <!-- BUDGET -->
-      <section class="pane" id="bud" role="tabpanel" aria-labelledby="t-bud" hidden>
-        <h2>Tételes költségvetés – beárazva</h2>
-        <p class="lead">A két kiírás minden tétele eredeti mennyiséggel és beírt egységárral. A mennyiség, az anyag- és a díjegységár átírható – az összesítő azonnal újraszámol. A narancs megjegyzés a tervvel való eltérést jelzi.</p>
-        <div class="btools">
-          <input type="search" id="q" placeholder="Keresés a tételekben (pl. betonacél, XPS, ajtó)" aria-label="Keresés a tételekben">
-          <button class="btn" id="expand" type="button">Mind kinyit</button>
-          <button class="btn" id="reset" type="button">Egységárak visszaállítása</button>
-          <button class="btn pri" id="csv" type="button">Másolás CSV-ként</button>
-        </div>
-        <div id="chapters"></div>
-      </section>
-
-      <!-- DOCS -->
-      <section class="pane" id="doc" role="tabpanel" aria-labelledby="t-doc" hidden>
-        <h2>A mappa tartalma</h2>
-        <p class="lead">23 fájl, 14 MB. A szkennelt PDF-ekből nem nyerhető ki gépi szöveg, ezeket képként olvastam el. Az A.01.1–A.01.3 és az A.03.x tervlapok (helyszínrajz, homlokzatok) nincsenek a mappában.</p>
-        <div class="scroll"><table class="conf doc"><thead><tr><th>Fájl</th><th>Tartalom</th><th>Oldal</th><th>Formátum</th><th>Árazáshoz</th></tr></thead><tbody id="docBody"></tbody></table></div>
-      </section>
-
-      <!-- NEXT -->
-      <section class="pane" id="next" role="tabpanel" aria-labelledby="t-next" hidden>
-        <h2>Így lesz pontos az ár</h2>
-        <p class="lead">A jelenlegi becslés pontossága kb. ±15–20 %. A lista sorrendje azt követi, melyik lépés mennyi bizonytalanságot vesz ki az árból.</p>
-        <ol class="steps">
-          <li><b>Gépész és villamos kiviteli terv + anyagkiírás bekérése</b><span>A legnagyobb hiányzó tétel (~37 M Ft várható). Tételes kiírás nélkül ez ±25 %-os blokkbecslés marad.</span></li>
-          <li><b>Statikai kiviteli terv: alaprajz, vasalási kimutatás, gerendák</b><span>Eldönti a sávalap méretét, a 25 cm-es födémeket, a monolit pincefalat és a betonacél-mennyiséget – most ez a kiírás legbizonytalanabb része.</span></li>
-          <li><b>Döntés a tervezővel az ellentmondásokról</b><span>Falazóelem, homlokzati hőszigetelés, pincefal, padló alatti XPS, lépcső, burkolat – a döntések után a kiírás tételszövegei javíthatók.</span></li>
-          <li><b>Nyílászáró-konszignáció és árnyékolás</b><span>A 23 alumínium tétel a becslés 16 %-a. Gyártói ajánlat (típus, Uw, emelő-toló szerkezet, zsaluzia) ±10 %-ra szűkíti.</span></li>
-          <li><b>DWG-tervek a mennyiségek ellenőrzéséhez</b><span>Födémzsaluzás (487,6 m² vs. ~560 m² számítva), pincefal-felület, homlokzat, földmunka – a méretláncokból újraszámolható.</span></li>
-          <li><b>Munkagödör-terv és földmérleg</b><span>Dúcolás vagy rézsű, a kitermelt agyag sorsa (elszállítás vs. telken tartás), visszatöltő anyag.</span></li>
-          <li><b>Régészeti egyeztetés a BTM-mel</b><span>Kell-e régészeti megfigyelés vagy próbafeltárás, és ki fizeti – idő- és költségkockázat.</span></li>
-          <li><b>Hatókör rögzítése a megrendelővel</b><span>Kerítés, kertépítés, konyha, tervezési díjak, közműdíjak – benne van-e az árban. ÁFA-kulcs adószakértővel (5 % vagy 27 %).</span></li>
-        </ol>
-      </section>
-    </main>
+      <div class="views">
+        <section class="view" id="v-ov" role="tabpanel">
+          <div class="vh"><h2>Mi olvasható ki a tervekből</h2><p>Témánként lenyitható – minden buborék egy adat, a forrás a téma fejlécében.</p></div>
+          <div class="acc" id="accOv"></div>
+        </section>
+        <section class="view" id="v-gap" role="tabpanel" hidden>
+          <div class="vh"><h2>Hiányosságok</h2><p>Ami a tervek szerint kell, de a kiírásban nincs. A kapcsolóval ki- vagy bevehető a becsült árból.</p></div>
+          <div class="acc" id="accGap"></div>
+        </section>
+        <section class="view" id="v-conf" role="tabpanel" hidden>
+          <div class="vh"><h2>Ellentmondások</h2><p>Ugyanarra a szerkezetre eltérő adat két dokumentumban – árazás előtt a tervezővel eldöntendő.</p></div>
+          <div class="acc" id="accConf"></div>
+        </section>
+        <section class="view" id="v-bud" role="tabpanel" hidden>
+          <div class="vh"><h2>Tételes költségvetés</h2>
+            <div class="btools">
+              <input type="search" id="q" placeholder="Keresés a tételekben (pl. betonacél, XPS, ajtó)" aria-label="Keresés a tételekben">
+              <button class="btn" id="reset" type="button">Visszaállítás</button>
+              <button class="btn pri" id="csv" type="button">Másolás CSV-ként</button>
+            </div>
+          </div>
+          <div class="acc" id="accBud"></div>
+        </section>
+        <section class="view" id="v-doc" role="tabpanel" hidden>
+          <div class="vh"><h2>A mappa tartalma</h2><p>23 fájl, 14 MB. A szkennelt PDF-eket képként olvastam el.</p></div>
+          <div class="acc" id="accDoc"></div>
+        </section>
+        <section class="view" id="v-next" role="tabpanel" hidden>
+          <div class="vh"><h2>Így lesz pontos az ár</h2><p>Jelenleg kb. ±15–20 %. A sorrend azt követi, melyik lépés mennyi bizonytalanságot vesz ki.</p></div>
+          <div class="acc" id="accNext"></div>
+        </section>
+      </div>
+    </section>
   </div>
 </div>
+
 <button class="qzfab" type="button" data-qzopen aria-haspopup="dialog">
   <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="4"/><circle id="qzRing" cx="18" cy="18" r="15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="94.25" stroke-dashoffset="94.25" transform="rotate(-90 18 18)"/></svg>
   <span>Pontosítsuk az árat<small data-qzw>–</small></span>
@@ -469,205 +397,284 @@ ol.steps li span{color:var(--ink-2);font-size:14px}
 (function(){
 const CH = JSON.parse(document.getElementById('itemsData').textContent);
 CH.forEach(c=>c.items.forEach(i=>{i.m0=i.m;i.d0=i.d;i.q0=i.q;}));
-
-const GAPS = [
- {id:'sav',sev:'crit',on:1,t:'Sávalapok 2,0 m-es alapsíkig',d:'A statika vasalt sávalapot ír elő min. 2,0 m-es alapsíkkal. A kiírás „Síkalapozás” munkaneme csak a 218 m² × 0,20 m-es talajon fekvő lemezt (43,62 m³) tartalmazza – maga a sávalap, a hozzá tartozó földkiemelés és vasalás nincs benne.',src:'T_Tartószerkezeti leírás 4. o. · TVJ 11 g)',min:4.5,exp:6.2,max:8.5},
- {id:'gep',sev:'crit',on:1,t:'Épületgépészet teljes egészében',d:'2 levegő-víz hőszivattyú HMV-tárolóval, ~310 m² padlófűtés, fan-coilok, víz-csatorna hálózat 2 lakásra, szaniterek, törölközőszárítók, elszívók, 5 m³ esővíz-tározó, alapvezetékek és közműbekötés. Gépész kiviteli terv és kiírás nincs.',src:'G_Műszaki leírás · G_Energetika',min:21,exp:26.5,max:33},
- {id:'vil',sev:'crit',on:1,t:'Épületvillamosság teljes egészében',d:'2 fogyasztásmérő + H-tarifa, közös mérőhely, rejtett installáció ~330 m²-re, lámpatestek, villámvédelem + EPH, gyengeáram, a 20 %-os rámpa fűtése, a hőszivattyú-gépalap fagymentesítése, kültéri világítás.',src:'E_Műszaki leírás · A.01.4',min:8,exp:10.5,max:14},
- {id:'fold',sev:'crit',on:1,t:'Kitermelt föld elszállítása és importált visszatöltés',d:'A kiírás 490 m³ föld telken belüli elterítésével számol, elszállítás nincs. A kövér agyag a TVJ szerint nem tömöríthető és duzzad – visszatöltésre kavicsos anyag kell, a 13,4 %-os telken pedig ennyi föld nem teríthető el.',src:'TVJ 8.3, 11 x–y) · kiírás „Irtás, föld”',min:3,exp:4.5,max:7.5},
- {id:'drain',sev:'crit',on:1,t:'Szivárgó (drén) a pince és a támfalak körül',d:'A TVJ kötelezően előírja a terepszint alatti szerkezetek és a támfalak körüli szivárgót, gyűjtőaknával. A kiírásban nincs drénszivárgó, szűrőkavics, akna, és a pincefal-szigetelés is csak 78 m²-rel szerepel.',src:'TVJ 10., 11 o)',min:1.5,exp:2.2,max:3.2},
- {id:'mgod',sev:'crit',on:1,t:'Munkagödör-biztosítás (dúcolás / rézsű)',d:'3 m-nél mélyebb bevágás 3 m-es oldalkerttel, felszínmozgás-veszélyes „D” területen, szomszédos támfal mellett. Az építész leírás hézagos dúcolást ír elő – a kiírásban nincs.',src:'É_Műszaki leírás 14. o. · TKV · Geo leírás',min:1.5,exp:3,max:6},
- {id:'pincefal',sev:'warn',on:1,t:'Monolit vb. pincefal a zsalukő helyett',d:'A statika 25 cm-es monolit, kétoldalt vasalt vasbeton pincefalat ír, a kiírás zsalukövet (106 m²). Kétoldali zsaluzással és nagyobb felülettel (pince + garázsok) a különbözet jelentős.',src:'T_Tartószerkezeti leírás 5. o.',min:1.5,exp:2.8,max:4.5},
- {id:'fodem',sev:'warn',on:1,t:'25 cm-es födémek (a kiírás 20 cm-rel számol)',d:'97,51 m³ = 487,57 m² × 0,20 m. A statika szerint a pince feletti és a közbenső födém 25 cm – kb. +12 m³ beton és +1 t betonacél. A zsaluzott felület a tervekből inkább ~560 m².',src:'T_Tartószerkezeti leírás 6. o.',min:1,exp:1.9,max:3},
- {id:'xps',sev:'warn',on:1,t:'15 cm XPS a talajon fekvő padló alatt',d:'A metszet R01 rétegrendje és az építész leírás 15 cm XPS-t ír a vb. lemez alá (az energetika 6 cm-rel számol). A kiírásban egyik sem szerepel.',src:'A.02.1 R01 · É_Műszaki leírás 7. o.',min:1.3,exp:2.4,max:2.7},
- {id:'arny',sev:'warn',on:1,t:'Külső árnyékolás (zsaluzia)',d:'Az építész leírás zsaluziát tervez, az energetika nyári hővédelme külső árnyékolással teljesül. Mind a 23 nyílászáró „árnyékolás nélkül” van kiírva.',src:'É_Műszaki leírás 8. o. · G_Energetika',min:3,exp:4.2,max:6},
- {id:'korlat',sev:'warn',on:1,t:'Lépcső-, terasz- és erkélykorlátok',d:'3 belső lépcső (~20 fm) és a teraszok, erkély, rámpa menti leesésvédelem (~35 fm). A „Lakatos” munkanem csak kerítésbetétet tartalmaz.',src:'A.01.4–A.01.6',min:2.5,exp:4,max:6.5},
- {id:'zold',sev:'warn',on:1,t:'Gyökérálló vízszigetelés a zöldtetőn',d:'Az R03 rétegrendben a PIR hőszigetelés felett nincs vízszigetelés, csak geotextil és HDPE lemez; a PVC lemez csak 104 m² teraszra van kiírva. A 190 m²-es zöldtető gyökérálló szigetelés nélkül nem működik.',src:'A.02.1 R03 · G_Energetika R03',min:1.2,exp:1.8,max:2.5},
- {id:'lepcso',sev:'warn',on:1,t:'Gipszbeton húzottkarú lépcsők',d:'A statika szerint a húzottkarú lépcsők gipszbetonból, szakkivitelezői gyártmányterv alapján készülnek. A kiírás csak 3,84 m³ monolit lépcsővel és tölgyburkolattal számol.',src:'T_Tartószerkezeti leírás 6. o.',min:1,exp:1.6,max:3},
- {id:'rampa',sev:'warn',on:1,t:'A 20 %-os rámpa pályaszerkezete',d:'A rámpa támfalai kiírva, a pálya (vb. lemez, csúszásmentes burkolat, folyóka) nem. A fűtése a villamos blokkban van.',src:'A.01.4 · A.01.5',min:1,exp:1.6,max:2.5},
- {id:'regesz',sev:'warn',on:1,t:'Régészeti megfigyelés / próbafeltárás',d:'A telek nyilvántartott régészeti lelőhelyen fekszik. A földmunkához régészeti szakfelügyelet, rosszabb esetben feltárás kellhet – költség és csúszás.',src:'TKV 1. o. · TVJ 12. o.',min:0.8,exp:1.5,max:4},
- {id:'org',sev:'warn',on:1,t:'Organizáció időarányos része',d:'Daruzás, betonszivattyú, állványbérlet és felelős műszaki vezetés egy-egy „kltg”-ban szerepel, a 11–12 hónapos kivitelezési időre alulbecsülve. Hulladék: 3 konténer a reális ~10 helyett.',src:'kiírás „Ideiglenes”',min:2.5,exp:3.8,max:6},
- {id:'aprok',sev:'warn',on:1,t:'Kőpárkány, belső párkány, tetőjárda, létra',d:'Az építész kő párkányt ír vízorral; a tetőkarbantartó létra helye jelölve; födémáttörések mennyisége üres a kiírásban.',src:'É_Műszaki leírás · A.01.5',min:0.8,exp:1.2,max:2},
- {id:'kert',sev:'info',on:0,t:'Kertépítés és növénytelepítés',d:'Sövények, díszfák, cserjék, gyepesítés ~500 m², öntözőhálózat. A kertrendezési tervlap (A.06.5) hivatkozva, de nincs a mappában.',src:'É_Műszaki leírás 13. o.',min:2.5,exp:3.5,max:5},
- {id:'kerites',sev:'info',on:0,t:'Oldalsó és hátsó kerítés',d:'A 63,12 m-es meglévő kerítés rossz állapotú, a tulajdonos újat ígért a szomszédnak (Geo leírás). A kiírás csak az utcafronti kerítést tartalmazza.',src:'Geo_Tervezési műszaki leírás',min:1.5,exp:2.2,max:3.5},
- {id:'konyha',sev:'info',on:0,t:'Konyhabútor, beépített szekrények',d:'Két lakás konyhája gépekkel. Általában nem része a kivitelezői árnak – megrendelővel tisztázandó.',src:'A.01.4–A.01.5',min:5,exp:7,max:10},
- {id:'terv',sev:'info',on:0,t:'Kiviteli tervek, műszaki ellenőr, tanúsítás',d:'Statika, gépész, villamos kiviteli terv, villámvédelmi terv, geodéziai kitűzés és záró felmérés, energetikai tanúsítvány, használatbavétel.',src:'minden szakági leírás',min:3,exp:4.5,max:6},
- {id:'kozmu',sev:'info',on:0,t:'Közműszolgáltatói díjak',d:'Áram-csatlakozási díj (2 × 3×25 A + H-tarifa), vízbekötés akna, csatorna-bekötés díja. Jelenleg ideiglenes áram van.',src:'É_Műszaki leírás 9. o.',min:1,exp:1.8,max:2.5}
-];
-
-const CONF = [
- ['Falazóelem','Kiírás: Porotherm 30 X-therm · Statika: Porotherm 30 N+F, fb = 12,5 N/mm² · Építész: PTH DryFix','X-therm, 17 500 + 9 500 Ft/m²','±0,6 M Ft; az X-therm teherbírása kérdéses'],
- ['Pince külső fal','Statika: 25 cm monolit vb., kétoldali vasalás · Kiírás és energetika: zsalukő','zsalukő + különbözet a hiányzó blokkban','+1,5–4,5 M Ft'],
- ['Homlokzati hőszigetelés','Építész: 12 cm grafit EPS (másutt 15 cm EPS) · Rétegrend, energetika, kiírás: 12 cm kőzetgyapot (Frontrock / Monrock Max E)','kőzetgyapot','EPS esetén −1,2 M Ft'],
- ['Födémvastagság','Statika: 25 / 25 / 20 cm · Kiírás: minden 20 cm · Energetika és metszet: zöldtető 18 cm','kiírás + különbözet a hiányzó blokkban','+1,0–3,0 M Ft'],
- ['Alapozás','Statika: vasalt sávalap, alapsík min. 2,0 m · Építész: zsalukő sávalap, min. 80 cm · TVJ: agyagban min. 1,8 m · Kiírás: csak lemez','statikai változat, hiányzó blokkként','+4,5–8,5 M Ft'],
- ['Padló alatti hőszigetelés','Metszet R01 és építész: 15 cm XPS · Energetika: 6 cm XPS · Kiírás: nincs','15 cm XPS, hiányzó blokkként','+1,3–2,7 M Ft'],
- ['Tetőfedés','Építész: „PVC fedés”, másutt „Zöldtető / fémlemez RAL 9001” · Kiírás: zöldtető 1 klt + 104 m² PVC','zöldtető + gyökérálló szigetelés','+1,2–2,5 M Ft'],
- ['Szobák padlója','Építész: melegpadló, laminált vagy hajópadló · Rétegrend: greslap · Kiírás: 231 m² gres + 98,7 m² parketta','kiírás szerint','hajópadlóval +1,5 M Ft'],
- ['Csapadékvíz','Építész: 5 m³ szikkasztó, 165 m² tető · Gépész: zárt tározó, 224 m² tető · Kertépítész: záportározó locsolásra','gépész blokkban 1 tározó','±0,8 M Ft'],
- ['Lépcsők','Statika: húzottkarú gipszbeton, gyártmányterv szerint · Kiírás: monolit vb. + tölgy járó- és homloklap','monolit + gipszbeton különbözet','+1,0–3,0 M Ft'],
- ['Árnyékolás','Építész: zsaluzia · Energetika: külső árnyékolás, g = 0,10 · Kiírás: „árnyékolás nélkül”','zsaluzia, hiányzó blokkként','+3,0–6,0 M Ft'],
- ['Belső ajtók','Építész: fa tok, fa ajtólap · Kiírás: MDF burkolatú ajtó','MDF','fa ajtóval +0,8 M Ft'],
- ['Színek','Homlokzat: beige / RAL 9003 / RAL 9010 · Bádogos: RAL 9006 / RAL 9001','–','árhatás nincs, rögzíteni kell'],
- ['Kiegészítő XPS','Kiírás: „1000×500×5 mm” · Építész: 5 cm kiegészítő XPS a koszorún','5 mm-es tétel','elírás valószínű, ~0,1 M Ft'],
- ['Szintterületek','Tervlapokon: −1. szint 303,4 / 0. szint 189,9 / 1. szint 64,1 m² · Táblázatban: 170,2 / 168,4 / 77,0 m² bruttó','táblázat szerint','mennyiség-ellenőrzéshez tisztázandó'],
- ['Eljárás típusa','Villamos leírás: „egyszerű bejelentés” · Építész és TKV: építési engedély','–','dokumentációs hiba']
-];
-
-const DOCS = [
- ['Tarhos utca szerkezet árajánlat árazatlan.xls','Szerkezeti kiírás: ideiglenes, zsaluzás, föld, alap, vb., áthidaló, falazás, vakolás, homlokzati nyílászárók','9 lap','ok','alap'],
- ['Tarhos utca befejező szakasz árajánlat árazatlan.xls','Befejező kiírás: esztrich, vakolat, burkolás, bádog, belső ajtó, festés, szigetelés, külső munkák, zöldtető','12 lap','ok','alap'],
- ['A.01.4 -1. Szint.pdf','Pinceszint alaprajz M 1:50, helyiséglista, nyílások, rámpa','1','ok','mennyiség'],
- ['A.01.5 0. Szint.pdf','Földszint alaprajz M 1:50, teraszok, erkély, gépészeti akna','1','ok','mennyiség'],
- ['A.01.6 1. Szint.pdf','Emeleti alaprajz M 1:50, extenzív zöldtető','1','ok','mennyiség'],
- ['A.02.1 Metszet.pdf','Hosszmetszet M 1:50 + rétegrendek R01–R07, F01–F02','1','ok','rétegrend'],
- ['A.02.2 Terepmetszet.pdf','Terepmetszetek M 1:100, eredeti terepvonal','1','ok','földmunka'],
- ['A.02.3 Metszet.pdf','Keresztmetszetek M-19, M-26','1','ok','mennyiség'],
- ['É_Műszaki leírás _ tarhos u.pdf','Építész leírás: TSZT-adatok, helyiséglista, anyagok, rétegrendek, kertépítészet','15','ok','műszaki tartalom'],
- ['T_Tartószerkezeti Műszaki Leírás….pdf','Statika M00: alapozás, falak, födémek, lépcső, AxisVM eredmények','18','ok','szerkezet'],
- ['G_Műszaki leírás.pdf','Gépész leírás: víz-csatorna, hőszivattyú, padlófűtés, szellőzés','17','ok','blokkbecslés'],
- ['G_Energetika.pdf','Energetikai számítás: U-értékek, felületek, nZEB-megfelelés','12','ok','felületek'],
- ['E_Műszaki leírás.pdf','Villamos leírás: teljesítményigény, mérés, installáció, villámvédelem','9','ok','blokkbecslés'],
- ['Bp_III_Tarhos_20_TVJ_pdfA (2).pdf','Talajvizsgálati jelentés A-26-227: 3 fúrás, agyag, rétegvíz, javaslatok','33','ok','kockázat'],
- ['I-334-22_2026_…TELEPÜLÉSKÉP-VÉL_FN.pdf','Településképi vélemény: feltétel nélkül javasolt; „D” terület, régészeti lelőhely','3','scan','kockázat'],
- ['Geo_Tervezesi_Muszaki_leirasAVDH.pdf','Geodéziai alaptérkép leírása: lejtés 11–12 %, rossz állapotú 63 m-es kerítés','2','scan','hatókör'],
- ['Geo__felmeres_szines_AVDH.pdf','Tervezési alaptérkép (A3), szintvonalak, fák','1','scan','földmunka'],
- ['TERKEP….pdf','E-hiteles földhivatali térképmásolat 1:1000','1','ok','–'],
- ['É_Aláírólap.pdf · T_ · G_ · E_Aláírólap.pdf','Tervezői nyilatkozatok, jogosultságok (4 fájl)','4','ok','–'],
- ['Meghatalmazások.pdf','Építtetői meghatalmazások','2','scan','–'],
- ['Hiányzik: A.01.1–A.01.3, A.03.x','Helyszínrajz, tetőfelülnézet, homlokzatok – a számozás alapján léteznek','–','none','homlokzat, rámpa'],
- ['Hiányzik: A.06.5','Kertrendezési terv (a leírás hivatkozik rá)','–','none','kert, támfal'],
- ['Hiányzik: kiviteli tervek','Statika (vasalás), gépész, villamos, nyílászáró-konszignáció','–','none','pontosság']
-];
-
 const $=s=>document.querySelector(s);
 const fmt=n=>Math.round(n).toLocaleString('hu-HU').replace(/ /g,' ');
 const mft=n=>(n/1e6).toLocaleString('hu-HU',{minimumFractionDigits:1,maximumFractionDigits:1})+' M Ft';
+const nf=n=>n.toLocaleString('hu-HU',{maximumFractionDigits:1});
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+
+/* ================= ADATOK ================= */
+const OV=[
+ {t:'Telek és beépítés',sum:'1 063 m² telek · 19,71 % beépítés',src:'É_Műszaki leírás · Geo leírás',f:[
+  ['1 063 m²','telek, Lke-2/SZ-IK-1, szabadon álló'],['209,54 m²','beépített terület (19,71 %)'],['72,97 m²','terepszint alatti beépítés'],
+  ['13,4 %','telekesés DNy felé'],['135,250 mBf','±0,00 szint'],['4,87 m','épületmagasság (max. 5,0 m)'],['65,1 %','zöldfelület'],['3 m','oldalkert – szűk munkatér']]},
+ {t:'Program és területek',sum:'2 lakás · 329,92 m² nettó',src:'É_Műszaki leírás · A.01.4–A.01.6',f:[
+  ['180,83 m²','A lakás nettó'],['150,05 m²','B lakás nettó'],['111,50 + 58,72 m²','pince + parkoló bruttó'],['168,39 m²','földszint bruttó'],
+  ['76,95 m²','emelet bruttó'],['93,01 m²','teraszok (57,35 + 35,66)'],['11,63 m²','erkély'],['2 garázs','a pinceszinten, 20 %-os fűtött rámpa'],['47 fok','3 lépcső: 15 + 16 + 16']]},
+ {t:'Tartószerkezet',sum:'sávalap 2,0 m · 25 cm vb. pincefal · 25/25/20 cm födém',src:'T_Tartószerkezeti leírás (M00)',f:[
+  ['≥ 2,0 m','vasalt sávalap alapsíkja a rendezett terep alatt'],['25 cm','monolit vb. pince külső fal, kétoldali vasalás'],['Porotherm 30 N+F','teherhordó falazat, fb = 12,5 N/mm²'],
+  ['25 cm','pince feletti és közbenső födém'],['20 cm','zárófödém, tört síkú, lejtésben'],['C30/37','beton (alap: XC3-XA1)'],['B500B','betonacél'],['gipszbeton','húzottkarú lépcsők, gyártmányterv szerint']]},
+ {t:'Talaj és geotechnika',sum:'kövér agyag D-4 · rétegvíz · régészeti lelőhely',src:'TVJ A-26-227 · Településképi vélemény',f:[
+  ['D-4','kövér agyag, nagyon térfogatváltozó'],['T-4','nem tömöríthető – visszatöltésre nem jó'],['122–124 mBf','talajvízszint, mélyen'],['rétegvíz','szivárgó kell a pince és a támfalak mögé'],
+  ['„D” terület','felszínmozgás-veszélyes (ÓBÉSZ)'],['régészeti lelőhely','nyilvántartott, a TKV szerint'],['min. 1,8 m','javasolt alapozási mélység agyagban'],['2. kat.','geotechnikai kategória']]},
+ {t:'Épületfizika',sum:'nZEB · 71,84 kWh/m²a · „A” besorolás',src:'G_Energetika (WinWatt)',f:[
+  ['71,84 kWh/m²a','összesített energetikai jellemző (köv. 76,00)'],['0,161 W/m²K','külső fal eredő U'],['1,1 W/m²K','ablak U'],['88,9 m²','ablakfelület'],
+  ['6,3 + 13,2 m²','külső ajtó + garázskapu'],['237,4 m²','külső falfelület'],['244,8 m²','tetők (zöldtető 189,7 m²)'],['g = 0,10','nyári hővédelem külső árnyékolással']]},
+ {t:'Gépészet és villany',sum:'2 hőszivattyú · padlófűtés + fan-coil · 2 × 3×25 A',src:'G_Műszaki leírás · E_Műszaki leírás',f:[
+  ['2 db','levegő-víz hőszivattyú, lakásonként'],['17,8 kW','épület hőigénye'],['6 kW','HMV-tároló patronja lakásonként'],['padlófűtés','+ fan-coil a komforthelyiségekben'],
+  ['5 m³','esővíz-tározó / szikkasztó'],['2 × 3×25 A','lakásonkénti mérés'],['3×20 A','H-tarifa a hőszivattyúknak'],['kiviteli terv','villámvédelem, gépész és villamos részletek']]},
+ {t:'A két árazatlan kiírás',sum:'74 + 143 tétel · gépészet, villany nincs',src:'*.xls',f:[
+  ['9 munkanem','szerkezet · 74 tétel · ÁFA-kulcs üres'],['12 munkanem','befejező · 143 tétel · 5 % ÁFA'],['nincs benne','gépészet, villany, sávalap, szivárgó, korlát, árnyékolás'],
+  ['rejtett F–G oszlop','régi egységárak maradtak (beton 21 847 Ft/m³) – kiküldés előtt törölni']]},
+ {t:'Hatósági keret',sum:'TKV feltétel nélkül · számított érték 198 M Ft',src:'I-334-22/2026 · É_Műszaki leírás',f:[
+  ['2026. 06. 24.','településképi vélemény: feltétel nélkül javasolt'],['198 M Ft','számított érték (600 e Ft/m² × 330 m²) – hatósági, nem piaci'],['engedélyes szint','statika, gépész, villany kiviteli tervre hivatkozik']]}
+];
+
+const GTOP=[
+ {id:'alap',n:'Alapozás és földmunka'},{id:'szerk',n:'Tartószerkezet'},{id:'gep',n:'Gépészet és villany'},
+ {id:'burok',n:'Szigetelés, tető, árnyékolás'},{id:'kieg',n:'Kiegészítők'},{id:'szerv',n:'Hatóság és organizáció'},{id:'scope',n:'Hatókör-kérdések'}];
+const GAPS = [
+ {id:'sav',tp:'alap',sev:'crit',on:1,t:'Sávalapok 2,0 m-es alapsíkig',d:'A statika vasalt sávalapot ír elő min. 2,0 m-es alapsíkkal. A „Síkalapozás” csak a 218 m² × 0,20 m-es talajlemezt (43,62 m³) tartalmazza – a sávalap, a földkiemelése és a vasalása nincs benne.',src:'T_Tartószerkezeti 4. o. · TVJ 11 g)',min:4.5,exp:6.2,max:8.5},
+ {id:'fold',tp:'alap',sev:'crit',on:1,t:'Föld elszállítása, importált visszatöltés',d:'A kiírás 490 m³ föld telken belüli elterítésével számol. A kövér agyag nem tömöríthető és duzzad – visszatöltésre kavics kell, a 13,4 %-os telken ennyi föld nem teríthető el.',src:'TVJ 8.3, 11 x–y)',min:3,exp:4.5,max:7.5},
+ {id:'drain',tp:'alap',sev:'crit',on:1,t:'Szivárgó a pince és a támfalak körül',d:'A TVJ előírja a terepszint alatti szerkezetek és a támfalak körüli szivárgót, gyűjtőaknával. A kiírásban nincs drén, szűrőkavics, akna; a pincefal-szigetelés csak 78 m².',src:'TVJ 10., 11 o)',min:1.5,exp:2.2,max:3.2},
+ {id:'mgod',tp:'alap',sev:'crit',on:1,t:'Munkagödör-biztosítás',d:'3 m-nél mélyebb bevágás 3 m-es oldalkerttel, felszínmozgás-veszélyes területen, szomszédos támfal mellett. Az építész leírás hézagos dúcolást ír elő.',src:'É_Műszaki leírás 14. o. · TKV',min:1.5,exp:3,max:6},
+ {id:'pincefal',tp:'szerk',sev:'warn',on:1,t:'Monolit vb. pincefal a zsalukő helyett',d:'A statika 25 cm-es monolit, kétoldalt vasalt falat ír, a kiírás zsalukövet (106 m²). Kétoldali zsaluzással és nagyobb felülettel a különbözet jelentős.',src:'T_Tartószerkezeti 5. o.',min:1.5,exp:2.8,max:4.5},
+ {id:'fodem',tp:'szerk',sev:'warn',on:1,t:'25 cm-es födémek',d:'97,51 m³ = 487,57 m² × 0,20 m. A statika szerint két födém 25 cm – kb. +12 m³ beton és +1 t betonacél; a zsaluzott felület inkább ~560 m².',src:'T_Tartószerkezeti 6. o.',min:1,exp:1.9,max:3},
+ {id:'lepcso',tp:'szerk',sev:'warn',on:1,t:'Gipszbeton húzottkarú lépcsők',d:'A statika szerint gipszbeton, szakkivitelezői gyártmányterv alapján. A kiírás csak 3,84 m³ monolit lépcsővel számol.',src:'T_Tartószerkezeti 6. o.',min:1,exp:1.6,max:3},
+ {id:'gep',tp:'gep',sev:'crit',on:1,t:'Épületgépészet teljes egészében',d:'2 hőszivattyú HMV-tárolóval, ~310 m² padlófűtés, fan-coilok, víz-csatorna 2 lakásra, szaniterek, törölközőszárítók, elszívók, 5 m³ esővíz-tározó, alapvezetékek, közműbekötés.',src:'G_Műszaki leírás · G_Energetika',min:21,exp:26.5,max:33},
+ {id:'vil',tp:'gep',sev:'crit',on:1,t:'Épületvillamosság teljes egészében',d:'2 mérő + H-tarifa, közös mérőhely, installáció ~330 m²-re, lámpatestek, villámvédelem + EPH, gyengeáram, rámpafűtés, gépalap-fagymentesítés, kültéri világítás.',src:'E_Műszaki leírás · A.01.4',min:8,exp:10.5,max:14},
+ {id:'xps',tp:'burok',sev:'warn',on:1,t:'15 cm XPS a talajon fekvő padló alatt',d:'A metszet R01 rétegrendje és az építész leírás 15 cm XPS-t ír (az energetika 6 cm-rel számol). A kiírásban egyik sincs.',src:'A.02.1 R01 · É_Műszaki leírás',min:1.3,exp:2.4,max:2.7},
+ {id:'zold',tp:'burok',sev:'warn',on:1,t:'Gyökérálló vízszigetelés a zöldtetőn',d:'Az R03 rétegrendben a PIR felett nincs vízszigetelés; a PVC lemez csak 104 m² teraszra van kiírva. A 190 m²-es zöldtető így nem működik.',src:'A.02.1 R03 · G_Energetika',min:1.2,exp:1.8,max:2.5},
+ {id:'arny',tp:'burok',sev:'warn',on:1,t:'Külső árnyékolás (zsaluzia)',d:'Az építész zsaluziát tervez, az energetika nyári hővédelme külső árnyékolással teljesül. Mind a 23 nyílászáró „árnyékolás nélkül” van kiírva.',src:'É_Műszaki leírás · G_Energetika',min:3,exp:4.2,max:6},
+ {id:'korlat',tp:'kieg',sev:'warn',on:1,t:'Lépcső-, terasz- és erkélykorlátok',d:'3 belső lépcső (~20 fm) és teraszok, erkély, rámpa menti leesésvédelem (~35 fm). A „Lakatos” munkanem csak kerítésbetétet tartalmaz.',src:'A.01.4–A.01.6',min:2.5,exp:4,max:6.5},
+ {id:'rampa',tp:'kieg',sev:'warn',on:1,t:'A 20 %-os rámpa pályaszerkezete',d:'A támfalak kiírva, a pálya (vb. lemez, csúszásmentes burkolat, folyóka) nem. A fűtése a villamos blokkban van.',src:'A.01.4 · A.01.5',min:1,exp:1.6,max:2.5},
+ {id:'aprok',tp:'kieg',sev:'warn',on:1,t:'Kőpárkány, belső párkány, tetőlétra',d:'Kő párkány vízorral, jelölt tetőkarbantartó létra; a födémáttörések mennyisége üres a kiírásban.',src:'É_Műszaki leírás · A.01.5',min:0.8,exp:1.2,max:2},
+ {id:'regesz',tp:'szerv',sev:'warn',on:1,t:'Régészeti megfigyelés / próbafeltárás',d:'A telek nyilvántartott régészeti lelőhelyen fekszik – szakfelügyelet, rosszabb esetben feltárás kellhet.',src:'TKV 1. o. · TVJ 12. o.',min:0.8,exp:1.5,max:4},
+ {id:'org',tp:'szerv',sev:'warn',on:1,t:'Organizáció időarányos része',d:'Daru, szivattyú, állványbérlet, műszaki vezetés egy-egy „kltg”-ban – 11–12 hónapra alulbecsülve. Hulladék: 3 konténer a reális ~10 helyett.',src:'kiírás „Ideiglenes”',min:2.5,exp:3.8,max:6},
+ {id:'kert',tp:'scope',sev:'info',on:0,t:'Kertépítés és növénytelepítés',d:'Sövények, díszfák, cserjék, ~500 m² gyep, öntözőhálózat. Az A.06.5 kertrendezési terv nincs a mappában.',src:'É_Műszaki leírás 13. o.',min:2.5,exp:3.5,max:5},
+ {id:'kerites',tp:'scope',sev:'info',on:0,t:'Oldalsó és hátsó kerítés',d:'A 63,12 m-es meglévő kerítés rossz állapotú, a tulajdonos újat ígért. A kiírás csak az utcafrontit tartalmazza.',src:'Geo_Tervezési műszaki leírás',min:1.5,exp:2.2,max:3.5},
+ {id:'konyha',tp:'scope',sev:'info',on:0,t:'Konyhabútor, beépített szekrények',d:'Két lakás konyhája gépekkel – általában nem része a kivitelezői árnak.',src:'A.01.4–A.01.5',min:5,exp:7,max:10},
+ {id:'terv',tp:'scope',sev:'info',on:0,t:'Kiviteli tervek, műszaki ellenőr, tanúsítás',d:'Statika, gépész, villamos kiviteli terv, villámvédelmi terv, geodézia, energetikai tanúsítvány, használatbavétel.',src:'minden szakági leírás',min:3,exp:4.5,max:6},
+ {id:'kozmu',tp:'scope',sev:'info',on:0,t:'Közműszolgáltatói díjak',d:'Áram-csatlakozási díj, vízbekötés akna, csatorna-bekötés. Jelenleg ideiglenes áram van.',src:'É_Műszaki leírás 9. o.',min:1,exp:1.8,max:2.5}
+];
+
+const CTOP=[{id:'szerk',n:'Tartószerkezet és alapozás'},{id:'szig',n:'Szigetelés és tető'},{id:'belso',n:'Nyílászáró, árnyékolás, burkolat'},{id:'egyeb',n:'Egyéb eltérések'}];
+const CONF = [
+ ['szerk','Falazóelem','Kiírás: Porotherm 30 X-therm · Statika: Porotherm 30 N+F, fb = 12,5 · Építész: PTH DryFix','X-therm','±0,6 M · X-therm teherbírása kérdéses'],
+ ['szerk','Pince külső fal','Statika: 25 cm monolit vb., kétoldali vasalás · Kiírás és energetika: zsalukő','zsalukő + különbözet','+1,5–4,5 M'],
+ ['szerk','Födémvastagság','Statika: 25 / 25 / 20 cm · Kiírás: minden 20 cm · Energetika és metszet: zöldtető 18 cm','kiírás + különbözet','+1,0–3,0 M'],
+ ['szerk','Alapozás','Statika: vasalt sávalap, min. 2,0 m · Építész: zsalukő sávalap, min. 80 cm · TVJ: agyagban min. 1,8 m · Kiírás: csak lemez','statikai változat','+4,5–8,5 M'],
+ ['szerk','Lépcsők','Statika: húzottkarú gipszbeton, gyártmányterv · Kiírás: monolit vb. + tölgyburkolat','monolit + különbözet','+1,0–3,0 M'],
+ ['szig','Homlokzati hőszigetelés','Építész: 12 cm grafit EPS (másutt 15 cm) · Rétegrend, energetika, kiírás: 12 cm kőzetgyapot','kőzetgyapot','EPS-sel −1,2 M'],
+ ['szig','Padló alatti hőszigetelés','Metszet R01 és építész: 15 cm XPS · Energetika: 6 cm · Kiírás: nincs','15 cm XPS','+1,3–2,7 M'],
+ ['szig','Tetőfedés','Építész: „PVC fedés”, másutt „Zöldtető / fémlemez RAL 9001” · Kiírás: zöldtető 1 klt + 104 m² PVC','zöldtető + gyökérálló szig.','+1,2–2,5 M'],
+ ['szig','Kiegészítő XPS','Kiírás: „1000×500×5 mm” · Építész: 5 cm a koszorún','5 mm-es tétel','elírás, ~0,1 M'],
+ ['belso','Árnyékolás','Építész: zsaluzia · Energetika: külső árnyékolás, g = 0,10 · Kiírás: „árnyékolás nélkül”','zsaluzia','+3,0–6,0 M'],
+ ['belso','Szobák padlója','Építész: melegpadló, laminált vagy hajópadló · Rétegrend: greslap · Kiírás: 231 m² gres + 98,7 m² parketta','kiírás szerint','hajópadlóval +1,5 M'],
+ ['belso','Belső ajtók','Építész: fa tok, fa ajtólap · Kiírás: MDF burkolatú ajtó','MDF','fa ajtóval +0,8 M'],
+ ['egyeb','Csapadékvíz','Építész: 5 m³ szikkasztó, 165 m² tető · Gépész: zárt tározó, 224 m² · Kertépítész: záportározó locsolásra','1 tározó','±0,8 M'],
+ ['egyeb','Színek','Homlokzat: beige / RAL 9003 / RAL 9010 · Bádogos: RAL 9006 / RAL 9001','–','rögzíteni kell'],
+ ['egyeb','Szintterületek','Tervlapok: 303,4 / 189,9 / 64,1 m² · Táblázat: 170,2 / 168,4 / 77,0 m² bruttó','táblázat','mennyiséghez tisztázandó'],
+ ['egyeb','Eljárás típusa','Villamos leírás: „egyszerű bejelentés” · Építész és TKV: építési engedély','–','dokumentációs hiba']
+];
+
+const DTOP=[{id:'kiir',n:'Kiírások'},{id:'rajz',n:'Tervlapok'},{id:'leir',n:'Műszaki leírások'},{id:'talaj',n:'Talaj és geodézia'},{id:'hat',n:'Hatósági és adminisztratív'},{id:'hiany',n:'Hiányzó dokumentumok'}];
+const DOCS = [
+ ['kiir','szerkezet árajánlat árazatlan.xls','Ideiglenes, zsaluzás, föld, alap, vb., áthidaló, falazás, vakolás, homlokzati nyílászárók','9 lap','ok','alap'],
+ ['kiir','befejező szakasz árajánlat árazatlan.xls','Esztrich, vakolat, burkolás, bádog, belső ajtó, festés, szigetelés, külső munkák, zöldtető','12 lap','ok','alap'],
+ ['rajz','A.01.4 -1. Szint','Pinceszint M 1:50, helyiséglista, nyílások, rámpa','1','ok','mennyiség'],
+ ['rajz','A.01.5 0. Szint','Földszint M 1:50, teraszok, erkély, gépészeti akna','1','ok','mennyiség'],
+ ['rajz','A.01.6 1. Szint','Emelet M 1:50, extenzív zöldtető','1','ok','mennyiség'],
+ ['rajz','A.02.1 Metszet','Hosszmetszet + rétegrendek R01–R07, F01–F02','1','ok','rétegrend'],
+ ['rajz','A.02.2 Terepmetszet','Terepmetszetek M 1:100, eredeti terepvonal','1','ok','földmunka'],
+ ['rajz','A.02.3 Metszet','Keresztmetszetek M-19, M-26','1','ok','mennyiség'],
+ ['leir','É_Műszaki leírás','TSZT-adatok, helyiséglista, anyagok, rétegrendek, kertépítészet','15','ok','műszaki tartalom'],
+ ['leir','T_Tartószerkezeti leírás','Alapozás, falak, födémek, lépcső, AxisVM eredmények','18','ok','szerkezet'],
+ ['leir','G_Műszaki leírás','Víz-csatorna, hőszivattyú, padlófűtés, szellőzés','17','ok','blokkbecslés'],
+ ['leir','G_Energetika','U-értékek, felületek, nZEB-megfelelés','12','ok','felületek'],
+ ['leir','E_Műszaki leírás','Teljesítményigény, mérés, installáció, villámvédelem','9','ok','blokkbecslés'],
+ ['talaj','TVJ A-26-227','3 fúrás, agyag, rétegvíz, alapozási javaslatok','33','ok','kockázat'],
+ ['talaj','Geo tervezési műszaki leírás','Lejtés 11–12 %, rossz állapotú 63 m-es kerítés','2','scan','hatókör'],
+ ['talaj','Geo felmérés (A3)','Tervezési alaptérkép, szintvonalak, fák','1','scan','földmunka'],
+ ['hat','Településképi vélemény','Feltétel nélkül javasolt; „D” terület, régészeti lelőhely','3','scan','kockázat'],
+ ['hat','E-hiteles térképmásolat','Földhivatali térkép 1:1000','1','ok','–'],
+ ['hat','Aláírólapok (É, T, G, E)','Tervezői nyilatkozatok, jogosultságok','4','ok','–'],
+ ['hat','Meghatalmazások','Építtetői meghatalmazások','2','scan','–'],
+ ['hiany','A.01.1–A.01.3, A.03.x','Helyszínrajz, tetőfelülnézet, homlokzatok','–','none','homlokzat, rámpa'],
+ ['hiany','A.06.5','Kertrendezési terv – a leírás hivatkozik rá','–','none','kert, támfal'],
+ ['hiany','Kiviteli tervek','Statika (vasalás), gépész, villamos, nyílászáró-konszignáció','–','none','pontosság']
+];
+
+const STEPS=[
+ ['Gépész és villamos kiviteli terv + kiírás','A legnagyobb hiányzó tétel (~37 M Ft várható) – kiírás nélkül ±25 %-os blokkbecslés marad.'],
+ ['Statikai kiviteli terv, vasalási kimutatás','Eldönti a sávalapot, a 25 cm-es födémeket, a monolit pincefalat és a betonacél-mennyiséget.'],
+ ['Döntés az ellentmondásokról','Falazóelem, homlokzati szigetelés, pincefal, padló alatti XPS, lépcső, burkolat.'],
+ ['Nyílászáró-konszignáció és árnyékolás','A 23 alumínium tétel a kiírt érték 16 %-a – gyártói ajánlat ±10 %-ra szűkíti.'],
+ ['DWG-tervek a mennyiségekhez','Födémzsaluzás (487,6 vs. ~560 m²), pincefal, homlokzat, földmunka újraszámolása.'],
+ ['Munkagödör-terv és földmérleg','Dúcolás vagy rézsű, a kitermelt agyag sorsa, visszatöltő anyag.'],
+ ['Régészeti egyeztetés a BTM-mel','Szakfelügyelet vagy próbafeltárás, ki fizeti – idő- és költségkockázat.'],
+ ['Hatókör és ÁFA rögzítése','Kerítés, kert, konyha, tervezés, közműdíjak; ÁFA-kulcs (5 % vagy 27 %) adószakértővel.']
+];
+
+/* ================= SZÁMÍTÁS ================= */
 const state={level:1,res:0.07,gk:0.08,vat:0.27};
-
+const Q={mul:{},adjS:0,adjB:0,unc:0.08};
+let LAST={lo:0,hi:0,N:0,w:0};
 function chTot(c){let m=0,d=0;c.items.forEach(i=>{m+=i.q*i.m;d+=i.q*i.d;});return {m,d,t:m+d};}
-
+function chMul(c){return Q.mul[c.ws+'|'+c.name]||1;}
 function calc(){
-  let S=0,B=0; CH.forEach(c=>{const t=chTot(c).t*(Q.mul[c.ws+'|'+c.name]||1); if(c.ws==='Szerkezet')S+=t; else B+=t;});
-  S+=Q.adjS; B+=Q.adjB;
-  S*=state.level; B*=state.level;
+  let S=0,B=0; CH.forEach(c=>{const t=chTot(c).t*chMul(c); if(c.ws==='Szerkezet')S+=t; else B+=t;});
+  S+=Q.adjS; B+=Q.adjB; S*=state.level; B*=state.level;
   let M=0,Mmin=0,Mmax=0; GAPS.forEach(g=>{if(g.on){M+=g.exp*1e6*state.level;Mmin+=g.min*1e6*state.level;Mmax+=g.max*1e6*state.level;}});
   const base=S+B+M, R=base*state.res, G=(base+R)*state.gk, N=base+R+G, V=N*state.vat;
   const f=(1+state.res)*(1+state.gk);
   const lo=((S+B)*(1-Q.unc)+Mmin)*f, hi=((S+B)*(1+Q.unc)+Mmax)*f;
   LAST={lo,hi,N,w:hi-lo};
-  $('#pNet').textContent=mft(N);
+  $('#pNet').textContent=mft(N); $('#pMini').textContent=mft(N);
   $('#pRange').textContent='sáv: '+mft(lo)+' – '+mft(hi);
   $('#kS').textContent=mft(S); $('#kB').textContent=mft(B); $('#kM').textContent=mft(M);
   $('#kR').textContent=mft(R); $('#kG').textContent=mft(G); $('#kN').textContent=mft(N);
   $('#kV').textContent=state.vat?mft(V):'–'; $('#kBr').textContent=mft(N+V);
   $('#kM2').textContent=fmt(N/329.92)+' Ft';
-  const parts=[[S,'var(--brand)'],[B,'var(--amber)'],[M,'var(--missing)'],[R+G,'var(--ink-3)']];
-  $('#stack').innerHTML=parts.map(([v,c])=>`<i style="width:${(v/N*100).toFixed(2)}%;background:${c}"></i>`).join('');
-  document.querySelectorAll('[data-chtot]').forEach(el=>{
-    const c=CH[+el.dataset.chtot], t=chTot(c);
-    const mu=Q.mul[c.ws+'|'+c.name]||1;
-    el.innerHTML=fmt(t.t*state.level*mu)+' Ft'+(mu!==1?' <span class="src">×'+String(mu).replace('.',',')+'</span>':'')+'<small>A '+fmt(t.m*state.level)+' · D '+fmt(t.d*state.level)+'</small>';
-  });
+  $('#stack').innerHTML=[[S,'var(--brand)'],[B,'var(--amber)'],[M,'var(--missing)'],[R+G,'var(--ink-3)']].map(([v,c])=>`<i style="width:${(v/N*100).toFixed(2)}%;background:${c}"></i>`).join('');
+  document.querySelectorAll('[data-chtot]').forEach(el=>{const c=CH[+el.dataset.chtot];el.textContent=nf(chTot(c).t*chMul(c)*state.level/1e6)+' M'+(chMul(c)!==1?' ×'+String(chMul(c)).replace('.',','):'');});
+  document.querySelectorAll('[data-wstot]').forEach(el=>{el.textContent=mft(el.dataset.wstot==='Szerkezet'?S:B);});
+  document.querySelectorAll('[data-gtot]').forEach(el=>{const gs=GAPS.filter(g=>g.tp===el.dataset.gtot&&g.on);el.textContent=gs.length?nf(gs.reduce((a,g)=>a+g.exp,0)*state.level)+' M Ft az árban':'nincs az árban';});
   if(window.qzUpdate) window.qzUpdate();
 }
-
-/* controls */
 function bindRange(id,out,key,f,disp){const el=$(id);el.addEventListener('input',()=>{state[key]=f(+el.value);$(out).textContent=disp(+el.value);calc();});}
 bindRange('#rLevel','#oLevel','level',v=>v,v=>v.toFixed(2).replace('.',',')+'×');
 bindRange('#rRes','#oRes','res',v=>v/100,v=>v+' %');
 bindRange('#rGk','#oGk','gk',v=>v/100,v=>v+' %');
 document.querySelectorAll('#vat button').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('#vat button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  state.vat=+b.dataset.v; calc();
+  document.querySelectorAll('#vat button').forEach(x=>x.setAttribute('aria-pressed',x===b)); state.vat=+b.dataset.v; calc();
 }));
+$('#calcToggle').addEventListener('click',()=>{const c=$('#calc');const on=!c.classList.contains('exp');c.classList.toggle('exp',on);$('#calcToggle').setAttribute('aria-expanded',on);$('#calcToggle').textContent=on?'Bezár':'Részletek';});
 
-/* tabs */
+/* ================= FÜLEK + LENYITHATÓ TÉMÁK ================= */
+const OPEN=Object.assign({ov:'0',gap:'alap',conf:'szerk',bud:'Szerkezet',doc:'kiir'},store.get('tarhos-open',{}));
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
-  document.querySelectorAll('.pane').forEach(p=>p.hidden=p.id!==b.dataset.pane);
-  try{localStorage.setItem('tarhos-tab',b.dataset.pane);}catch(e){}
+  document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!=='v-'+b.dataset.view);
+  store.set('tarhos-tab',b.dataset.view);
 }));
-try{const t=localStorage.getItem('tarhos-tab'); if(t){const b=document.querySelector(`.tabs button[data-pane="${t}"]`); if(b) b.click();}}catch(e){}
+function secHtml(view,id,i,name,sum,tag,body,bw,swipe){
+  const open=OPEN[view]===id;
+  return `<section class="sec${open?' open':''}" data-view="${view}" data-sec="${id}">
+    <button type="button" class="sh" aria-expanded="${open}"><span class="ic">${i}</span><span class="nm">${name}</span><span class="sm">${sum}</span><span class="tag">${tag}</span><span class="chev">›</span></button>
+    <div class="sb${swipe?' swipe':''}" style="--bw:${bw||'250px'}">${body}</div></section>`;
+}
+document.querySelector('.views').addEventListener('click',e=>{
+  const p=e.target.closest('.clamp'); if(p){p.classList.toggle('full');return;}
+  const sh=e.target.closest('.sh'); if(!sh)return;
+  const sec=sh.parentElement, view=sec.dataset.view, id=sec.dataset.sec, acc=sec.parentElement;
+  const willOpen=!sec.classList.contains('open');
+  acc.querySelectorAll(':scope > .sec').forEach(s=>{const o=willOpen&&s===sec;s.classList.toggle('open',o);s.querySelector('.sh').setAttribute('aria-expanded',o);});
+  OPEN[view]=willOpen?id:null; store.set('tarhos-open',OPEN);
+  if(view==='bud'&&willOpen)renderBudTable();
+});
 
-/* gaps */
+function renderOv(){
+  $('#accOv').innerHTML=OV.map((t,i)=>secHtml('ov',String(i),i+1,t.t,t.sum,t.src,
+    t.f.map(([v,l])=>`<div class="bub"><div class="v">${v}</div><div class="l">${l}</div></div>`).join(''),'185px')).join('');
+}
 const SEVL={crit:'Kritikus',warn:'Jelentős',info:'Hatókör'};
-let gapFilter='all';
+function gapBub(g){
+  return `<div class="bub${g.on?'':' off'}">
+    <div class="row"><span class="sev ${g.sev}">${SEVL[g.sev]}</span><span class="cost">${nf(g.exp)} M<small>${nf(g.min)}–${nf(g.max)}</small></span></div>
+    <h4>${g.t}</h4><p class="clamp" title="Kattints a teljes szövegért">${g.d}</p>
+    <div class="row"><span class="src">${g.src}</span><label class="sw"><input type="checkbox" data-gap="${g.id}" ${g.on?'checked':''}> az árban</label></div></div>`;
+}
 function renderGaps(){
   $('#gapCnt').textContent=GAPS.length;
-  $('#gapList').innerHTML=GAPS.filter(g=>gapFilter==='all'||g.sev===gapFilter).map(g=>`
-    <div class="gap">
-      <span class="sev ${g.sev}">${SEVL[g.sev]}</span>
-      <div><h4>${g.t}</h4><p>${g.d}</p><div class="src" style="margin-top:6px">${g.src}</div></div>
-      <div class="cost"><b>${g.exp.toLocaleString('hu-HU')} M Ft</b><small>${g.min.toLocaleString('hu-HU')} – ${g.max.toLocaleString('hu-HU')} M Ft</small>
-        <label class="sw"><input type="checkbox" data-gap="${g.id}" ${g.on?'checked':''}> az árban</label></div>
-    </div>`).join('');
+  $('#accGap').innerHTML=GTOP.map((t,i)=>{
+    const gs=GAPS.filter(g=>g.tp===t.id), crit=gs.filter(g=>g.sev==='crit').length;
+    return secHtml('gap',t.id,i+1,t.n,gs.length+' tétel'+(crit?' · '+crit+' kritikus':''),`<span data-gtot="${t.id}"></span>`,gs.map(gapBub).join(''),'255px',1);
+  }).join('');
 }
-$('#gapList').addEventListener('change',e=>{const id=e.target.dataset.gap; if(!id)return; GAPS.find(g=>g.id===id).on=e.target.checked?1:0; calc();});
-document.querySelectorAll('#gapFilters .chip').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('#gapFilters .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  gapFilter=b.dataset.f; renderGaps();
-}));
-
-/* conflicts & docs */
-$('#confCnt').textContent=CONF.length;
-$('#confBody').innerHTML=CONF.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="mono">${r[3]}</td></tr>`).join('');
+$('#accGap').addEventListener('change',e=>{const id=e.target.dataset.gap;if(!id)return;const g=GAPS.find(x=>x.id===id);g.on=e.target.checked?1:0;e.target.closest('.bub').classList.toggle('off',!g.on);calc();});
+function renderConf(){
+  $('#confCnt').textContent=CONF.length;
+  $('#accConf').innerHTML=CTOP.map((t,i)=>{const cs=CONF.filter(c=>c[0]===t.id);
+    return secHtml('conf',t.id,i+1,t.n,cs.map(c=>c[1]).join(' · '),cs.length+' eltérés',cs.map(c=>`<div class="bub">
+      <div class="row"><h4>${c[1]}</h4><span class="pill imp">${c[4]}</span></div>
+      <p>${c[2]}</p><dl class="kvb"><dt>becslés most</dt><dd>${c[3]}</dd></dl></div>`).join(''),'300px',1);}).join('');
+}
 const PL={ok:['szöveges','ok'],scan:['szkennelt','scan'],none:['nincs meg','none']};
-$('#docBody').innerHTML=DOCS.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td><span class="pill ${PL[r[3]][1]}">${PL[r[3]][0]}</span></td><td>${r[4]}</td></tr>`).join('');
+function renderDocs(){
+  $('#accDoc').innerHTML=DTOP.map((t,i)=>{const ds=DOCS.filter(d=>d[0]===t.id);
+    return secHtml('doc',t.id,i+1,t.n,ds.map(d=>d[1]).join(' · '),ds.length+' fájl',ds.map(d=>`<div class="bub">
+      <div class="row"><h4>${d[1]}</h4><span class="pill ${PL[d[4]][1]}">${PL[d[4]][0]}</span></div>
+      <p>${d[2]}</p><dl class="kvb"><dt>oldal</dt><dd class="mono">${d[3]}</dd><dt>árazáshoz</dt><dd>${d[5]}</dd></dl></div>`).join(''),'240px',1);}).join('');
+}
+function renderNext(){
+  $('#accNext').innerHTML=`<section class="sec open"><div class="sb" style="--bw:260px;padding-top:10px">${STEPS.map((s,i)=>`<div class="bub"><div class="row"><span class="stepn">${i+1}</span></div><h4>${s[0]}</h4><p>${s[1]}</p></div>`).join('')}</div></section>`;
+}
 
-/* budget */
-function rowHtml(ci,ii,i){
+/* ================= TÉTELES KÖLTSÉGVETÉS ================= */
+const WS=['Szerkezet','Befejező'];
+const budSel=Object.assign({Szerkezet:0,Befejező:9},store.get('tarhos-bud',{}));
+function renderBud(){
+  $('#accBud').innerHTML=WS.map((w,wi)=>{
+    const open=OPEN.bud===w, chs=CH.map((c,ci)=>[c,ci]).filter(([c])=>c.ws===w);
+    return `<section class="sec${open?' open':''}" data-view="bud" data-sec="${w}">
+      <button type="button" class="sh" aria-expanded="${open}"><span class="ic">${wi+1}</span><span class="nm">${w==='Szerkezet'?'Szerkezet kiírás':'Befejező szakasz kiírás'}</span><span class="sm">${chs.length} munkanem · ${chs.reduce((a,[c])=>a+c.items.length,0)} tétel</span><span class="tag" data-wstot="${w}"></span><span class="chev">›</span></button>
+      <div class="sb budbody"><div class="cchips">${chs.map(([c,ci])=>`<button type="button" class="cchip" data-ci="${ci}" aria-pressed="${budSel[w]===ci}">${c.name}<small data-chtot="${ci}"></small></button>`).join('')}</div>
+      <div class="tw" data-tw="${w}"></div></div></section>`;
+  }).join('');
+  renderBudTable();
+}
+function rowHtml(ci,ii,i,showCh){
   return `<tr data-ci="${ci}" data-ii="${ii}" class="${i.q?'':'zero'}">
     <td class="code">${i.code}</td>
-    <td class="t">${i.sub?`<span class="sub">${i.sub}</span>`:''}${i.t}${i.n?`<span class="flag">${i.n}</span>`:''}</td>
+    <td class="t">${showCh?`<span class="sub">${CH[ci].name}</span>`:(i.sub?`<span class="sub">${i.sub}</span>`:'')}${i.t}${i.n?`<span class="flag">${i.n}</span>`:''}</td>
     <td class="r"><input class="q" id="q-${ci}-${ii}" data-k="q" value="${i.q}" inputmode="decimal" aria-label="Mennyiség"> ${i.u}</td>
     <td class="r"><input id="m-${ci}-${ii}" data-k="m" value="${i.m}" inputmode="numeric" aria-label="Anyag egységár"></td>
     <td class="r"><input id="d-${ci}-${ii}" data-k="d" value="${i.d}" inputmode="numeric" aria-label="Díj egységár"></td>
     <td class="r" data-rowtot>${fmt(i.q*(i.m+i.d))}</td></tr>`;
 }
-function renderBudget(){
-  $('#chapters').innerHTML=CH.map((c,ci)=>`
-    <details class="ch" data-ch="${ci}">
-      <summary><div><div class="ws">${c.ws}</div><div class="nm">${c.name} <span class="src">· ${c.items.length} tétel</span></div></div><span></span><div class="tt" data-chtot="${ci}"></div></summary>
-      <div class="scroll"><table class="items"><thead><tr><th>Tételszám</th><th>Tétel</th><th>Mennyiség</th><th>Anyag Ft/egys</th><th>Díj Ft/egys</th><th>Összesen Ft</th></tr></thead>
-      <tbody>${c.items.map((i,ii)=>rowHtml(ci,ii,i)).join('')}</tbody></table></div>
-    </details>`).join('');
+const THEAD='<thead><tr><th>Tételszám</th><th>Tétel</th><th>Mennyiség</th><th>Anyag Ft</th><th>Díj Ft</th><th>Összesen Ft</th></tr></thead>';
+function renderBudTable(){
+  const w=OPEN.bud; if(!w){calc();return;}
+  const tw=document.querySelector(`[data-tw="${w}"]`); if(!tw){calc();return;}
+  const s=$('#q').value.trim().toLowerCase();
+  let rows='';
+  if(s){
+    CH.forEach((c,ci)=>{if(c.ws!==w)return;c.items.forEach((i,ii)=>{if((i.t+' '+i.code+' '+(i.n||'')+' '+c.name).toLowerCase().includes(s))rows+=rowHtml(ci,ii,i,true);});});
+    if(!rows)rows=`<tr><td colspan="6" style="padding:16px;color:var(--ink-3)">Nincs találat ebben a kiírásban – nyisd le a ${w==='Szerkezet'?'befejező szakaszt':'szerkezet kiírást'} is.</td></tr>`;
+  }else{
+    const ci=budSel[w]; CH[ci].items.forEach((i,ii)=>rows+=rowHtml(ci,ii,i,false));
+  }
+  tw.innerHTML=`<table class="items">${THEAD}<tbody>${rows}</tbody></table>`;
+  tw.parentElement.querySelectorAll('.cchip').forEach(b=>b.setAttribute('aria-pressed',!s&&+b.dataset.ci===budSel[w]));
+  calc();
 }
-$('#chapters').addEventListener('input',e=>{
+$('#accBud').addEventListener('click',e=>{
+  const b=e.target.closest('.cchip'); if(!b)return;
+  budSel[OPEN.bud]=+b.dataset.ci; store.set('tarhos-bud',budSel); $('#q').value=''; renderBudTable();
+});
+$('#accBud').addEventListener('input',e=>{
   const inp=e.target; if(!inp.dataset.k)return;
   const tr=inp.closest('tr'), it=CH[+tr.dataset.ci].items[+tr.dataset.ii];
   const v=parseFloat(String(inp.value).replace(/\s/g,'').replace(',','.')); it[inp.dataset.k]=isNaN(v)?0:v;
   tr.querySelector('[data-rowtot]').textContent=fmt(it.q*(it.m+it.d)); tr.classList.toggle('zero',!it.q);
   calc();
 });
-$('#q').addEventListener('input',e=>{
-  const s=e.target.value.trim().toLowerCase();
-  document.querySelectorAll('details.ch').forEach(d=>{
-    let any=false;
-    d.querySelectorAll('tbody tr').forEach(tr=>{const hit=!s||tr.textContent.toLowerCase().includes(s); tr.hidden=!hit; any=any||hit;});
-    d.hidden=!any; if(s) d.open=any;
-  });
-});
-let opened=false;
-$('#expand').addEventListener('click',()=>{opened=!opened;document.querySelectorAll('details.ch').forEach(d=>d.open=opened);$('#expand').textContent=opened?'Mind bezár':'Mind kinyit';});
-$('#reset').addEventListener('click',()=>{CH.forEach(c=>c.items.forEach(i=>{i.m=i.m0;i.d=i.d0;i.q=i.q0;}));const open=[...document.querySelectorAll('details.ch')].map(d=>d.open);renderBudget();document.querySelectorAll('details.ch').forEach((d,k)=>d.open=open[k]);calc();toast('Egységárak és mennyiségek visszaállítva');});
+$('#q').addEventListener('input',()=>{ if(!OPEN.bud){OPEN.bud='Szerkezet';renderBud();} else renderBudTable(); });
+$('#reset').addEventListener('click',()=>{CH.forEach(c=>c.items.forEach(i=>{i.m=i.m0;i.d=i.d0;i.q=i.q0;}));renderBudTable();toast('Egységárak és mennyiségek visszaállítva');});
 $('#csv').addEventListener('click',async()=>{
   const q=v=>'"'+String(v).replace(/"/g,'""')+'"';
   const lines=[['Kiírás','Munkanem','Tételszám','Tétel','Mennyiség','Egység','Anyag egységár','Díj egységár','Anyag összesen','Díj összesen','Megjegyzés'].map(q).join(';')];
-  CH.forEach(c=>c.items.forEach(i=>lines.push([c.ws,c.name,i.code,i.t,String(i.q).replace('.',','),i.u,Math.round(i.m*state.level),Math.round(i.d*state.level),Math.round(i.q*i.m*state.level),Math.round(i.q*i.d*state.level),i.n].map(q).join(';'))));
-  GAPS.filter(g=>g.on).forEach(g=>lines.push(['Hiányzó','',"",g.t,'1','klt','','',Math.round(g.exp*1e6*state.level),'',g.min+'–'+g.max+' M Ft'].map(q).join(';')));
+  CH.forEach(c=>{const mu=chMul(c)*state.level;c.items.forEach(i=>lines.push([c.ws,c.name,i.code,i.t,String(i.q).replace('.',','),i.u,Math.round(i.m*mu),Math.round(i.d*mu),Math.round(i.q*i.m*mu),Math.round(i.q*i.d*mu),i.n].map(q).join(';')));});
+  GAPS.filter(g=>g.on).forEach(g=>lines.push(['Hiányzó','','',g.t,'1','klt','','',Math.round(g.exp*1e6*state.level),'',g.min+'–'+g.max+' M Ft'].map(q).join(';')));
   try{await navigator.clipboard.writeText(lines.join('\n'));toast('A költségvetés CSV-ként a vágólapon – Excelbe beilleszthető');}
   catch(e){toast('A vágólap nem érhető el ebben a nézetben');}
 });
 function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>el.classList.remove('on'),2600);}
 
-renderBudget();
-/* ---------- pontosító kérdések ---------- */
-const Q={mul:{},adjS:0,adjB:0,unc:0.08};
-let LAST={lo:0,hi:0,N:0,w:0};
+/* ================= PONTOSÍTÓ KÉRDÉSEK ================= */
 GAPS.forEach(g=>g.def=[g.min,g.exp,g.max,g.on]);
 const r3=(a,b,c)=>[a,b,c];
-/* set: {g:{id:[min,exp,max]}, off:[ids], mul:{key:x}, adjS, adjB, unc:1} */
 const QS=[
  {id:'gep',grp:'Gépészet',q:'Milyen gépészeti szinttel számoljunk?',why:'Gépész kiviteli terv nincs; a hőleadók és a gépek kategóriája adja az ár nagy részét.',gap:'gep',o:[
    {l:'Alap',s:'2 hőszivattyú + padlófűtés, fan-coil nélkül, közép szaniter',set:{g:{gep:r3(17,19,21)}}},
@@ -734,17 +741,15 @@ const QS=[
  {id:'scope',grp:'Hatókör',multi:1,q:'Mi legyen még benne a vállalási árban?',why:'Ezek nem az épület részei, de az ajánlatkérés hatóköre dönt róluk. A bejelölt tételek szűk sávval kerülnek az árba.',o:[
    {l:'Kertépítés és növénytelepítés',id:'kert'},{l:'Oldalsó és hátsó kerítés',id:'kerites'},{l:'Konyhabútor, beépített szekrények',id:'konyha'},{l:'Kiviteli tervek, tanúsítás',id:'terv'},{l:'Közműszolgáltatói díjak',id:'kozmu'}]}
 ];
-const ANS={}; // id -> option index | 'u' | array (multi)
-try{Object.assign(ANS,JSON.parse(localStorage.getItem('tarhos-qz')||'{}'));}catch(e){}
+const ANS=store.get('tarhos-qz',{});
 let cur=0, showSum=false;
-
 function applyAnswers(){
   GAPS.forEach(g=>{[g.min,g.exp,g.max,g.on]=g.def;});
   Q.mul={};Q.adjS=0;Q.adjB=0;let u=0;
   QS.forEach(q=>{
     const a=ANS[q.id]; if(a===undefined||a==='u')return;
-    if(q.multi){(a||[]).forEach(id=>{const g=GAPS.find(x=>x.id===id); if(g){g.on=1;g.min=+(g.exp*0.88).toFixed(2);g.max=+(g.exp*1.12).toFixed(2);}}); return;}
-    const s=q.o[a].set;
+    if(q.multi){(Array.isArray(a)?a:[]).forEach(id=>{const g=GAPS.find(x=>x.id===id); if(g){g.on=1;g.min=+(g.exp*0.88).toFixed(2);g.max=+(g.exp*1.12).toFixed(2);}}); return;}
+    const s=q.o[a]&&q.o[a].set; if(!s)return;
     if(s.g)Object.entries(s.g).forEach(([id,v])=>{const g=GAPS.find(x=>x.id===id);[g.min,g.exp,g.max]=v;g.on=1;});
     if(s.off)s.off.forEach(id=>{const g=GAPS.find(x=>x.id===id);g.on=0;g.min=g.exp=g.max=0;});
     if(s.mul)Object.assign(Q.mul,s.mul);
@@ -752,20 +757,12 @@ function applyAnswers(){
     if(s.unc)u++;
   });
   Q.unc=Math.max(0.02,0.08-u*0.015);
-  try{localStorage.setItem('tarhos-qz',JSON.stringify(ANS));}catch(e){}
+  store.set('tarhos-qz',ANS);
   renderGaps(); calc();
 }
 const mf=n=>(n/1e6).toLocaleString('hu-HU',{maximumFractionDigits:1})+' M';
-function effText(q,o){
-  if(!q.gap||!o.set)return '';
-  if(o.set.off)return '0 Ft';
-  const v=o.set.g[q.gap]; return v[1].toLocaleString('hu-HU')+' M';
-}
-function impText(q){
-  if(q.imp)return q.imp;
-  const g=GAPS.find(x=>x.id===q.gap); if(!g)return '';
-  const [mn,,mx]=g.def; return '~'+(mx-mn).toLocaleString('hu-HU',{maximumFractionDigits:1})+' M Ft bizonytalanság';
-}
+function effText(q,o){ if(!q.gap||!o.set)return ''; if(o.set.off)return '0 Ft'; return nf(o.set.g[q.gap][1])+' M'; }
+function impText(q){ if(q.imp)return q.imp; const g=GAPS.find(x=>x.id===q.gap); if(!g)return ''; const [mn,,mx]=g.def; return '~'+nf(mx-mn)+' M Ft bizonytalanság'; }
 window.qzUpdate=function(){
   const w=LAST.w, good=w<=50e6;
   document.querySelectorAll('[data-qzw]').forEach(el=>el.textContent='sáv '+mf(w)+(good?' ✓':''));
@@ -778,11 +775,10 @@ window.qzUpdate=function(){
   document.getElementById('qzMid').style.left=X(LAST.N)+'%';
   const t=document.getElementById('qzT50'); t.style.left=X(LAST.N-25e6)+'%'; t.style.width=(X(LAST.N+25e6)-X(LAST.N-25e6))+'%';
 };
-function answeredCount(){return QS.filter(q=>ANS[q.id]!==undefined).length;}
 function render(){
   const body=document.getElementById('qzBody');
   document.getElementById('qzProg').innerHTML=QS.map((q,i)=>`<i class="${ANS[q.id]===undefined?'':(ANS[q.id]==='u'?'s':'a')}${i===cur&&!showSum?' c':''}"></i>`).join('');
-  document.getElementById('qzCount').textContent=answeredCount()+' / '+QS.length+' megválaszolva';
+  document.getElementById('qzCount').textContent=QS.filter(q=>ANS[q.id]!==undefined).length+' / '+QS.length+' megválaszolva';
   document.getElementById('qzBack').disabled=!showSum&&cur===0;
   if(showSum){
     const good=LAST.w<=50e6;
@@ -790,7 +786,7 @@ function render(){
       <div class="qzq">${good?'A becslés 50 M Ft-os sávon belül van':'Még szűkíthető a sáv'}</div>
       <p class="qzwhy">Nettó vállalási ár: <b class="mono">${mf(LAST.N)} Ft</b> · sáv ${mf(LAST.lo)} – ${mf(LAST.hi)} Ft (${mf(LAST.w)})</p></div>
       <div class="alist">${QS.map((q,i)=>{const a=ANS[q.id];let t='– nincs válasz';
-        if(a==='u')t='nem tudom'; else if(q.multi&&a)t=a.length?a.length+' tétel':'semmi'; else if(a!==undefined)t=q.o[a].l;
+        if(a==='u')t='nem tudom'; else if(q.multi&&Array.isArray(a))t=a.length?a.length+' tétel':'semmi'; else if(a!==undefined&&q.o[a])t=q.o[a].l;
         return `<button type="button" data-jump="${i}"><em>${q.q}</em><strong>${t}</strong></button>`;}).join('')}</div>
       <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap">
         <button class="btn" type="button" id="qzReset">Válaszok törlése</button>
@@ -801,7 +797,7 @@ function render(){
   if(q.multi){
     const sel=Array.isArray(a)?a:[];
     body.innerHTML=`<div class="qzgrp">${q.grp} · ${cur+1}/${QS.length}</div><div class="qzq">${q.q}</div><p class="qzwhy">${q.why}</p>
-      <div class="checks">${q.o.map(o=>{const g=GAPS.find(x=>x.id===o.id);return `<label><input type="checkbox" value="${o.id}" ${sel.includes(o.id)?'checked':''}><span>${o.l}</span><span class="mono" style="font-size:12px;color:var(--ink-2)">${g.def[1].toLocaleString('hu-HU')} M</span></label>`;}).join('')}</div>
+      <div class="checks">${q.o.map(o=>{const g=GAPS.find(x=>x.id===o.id);return `<label><input type="checkbox" value="${o.id}" ${sel.includes(o.id)?'checked':''}><span>${o.l}</span><span class="mono" style="font-size:12px;color:var(--ink-2)">${nf(g.def[1])} M</span></label>`;}).join('')}</div>
       <div style="margin-top:14px;text-align:right"><button class="btn pri" type="button" id="qzMultiOk">Tovább</button></div>`;
     return;
   }
@@ -814,20 +810,22 @@ function next(){
   if(LAST.w<=50e6&&!QS.slice(cur+1).some(q=>ANS[q.id]===undefined)){showSum=true;render();return;}
   let i=QS.findIndex((q,k)=>k>cur&&ANS[q.id]===undefined);
   if(i<0)i=QS.findIndex(q=>ANS[q.id]===undefined);
-  if(i<0){showSum=true;}else cur=i;
+  if(i<0)showSum=true; else cur=i;
   render();
 }
-function choose(v){
-  const q=QS[cur]; ANS[q.id]=v; applyAnswers(); render();
-  setTimeout(next,260);
-}
+function choose(v){ ANS[QS[cur].id]=v; applyAnswers(); render(); setTimeout(next,260); }
 const qz=document.getElementById('qz');
 let lastFocus=null;
-function openQz(){lastFocus=document.activeElement;qz.hidden=false;showSum=false;const i=QS.findIndex(q=>ANS[q.id]===undefined);if(i<0)showSum=true;else cur=i;render();qzUpdate();document.getElementById('qzClose').focus();}
-function closeQz(){qz.hidden=true;if(lastFocus)lastFocus.focus();}
+function lock(on){ document.documentElement.classList.toggle('qz-lock',on); }
+function openQz(){lastFocus=document.activeElement;lock(true);qz.hidden=false;showSum=false;const i=QS.findIndex(q=>ANS[q.id]===undefined);if(i<0)showSum=true;else cur=i;render();qzUpdate();document.getElementById('qzClose').focus();}
+function closeQz(){qz.hidden=true;lock(false);if(lastFocus)lastFocus.focus();}
 document.querySelectorAll('[data-qzopen]').forEach(b=>b.addEventListener('click',openQz));
 document.getElementById('qzClose').addEventListener('click',closeQz);
 qz.addEventListener('click',e=>{if(e.target===qz)closeQz();});
+/* a háttér ne mozduljon: csak a kérdező doboza görgethet, ha nem fér ki */
+const canScroll=e=>{const box=e.target.closest('.qzbox');return box&&box.scrollHeight>box.clientHeight;};
+qz.addEventListener('wheel',e=>{if(!canScroll(e))e.preventDefault();},{passive:false});
+qz.addEventListener('touchmove',e=>{if(!canScroll(e))e.preventDefault();},{passive:false});
 document.getElementById('qzBack').addEventListener('click',()=>{if(showSum){showSum=false;}else if(cur>0)cur--;render();});
 document.getElementById('qzSum').addEventListener('click',()=>{showSum=true;render();});
 document.getElementById('qzBody').addEventListener('click',e=>{
@@ -844,7 +842,11 @@ document.addEventListener('keydown',e=>{
   if(e.key==='0'){choose('u');return;}
   const n=parseInt(e.key,10); if(n>=1&&n<=QS[cur].o.length)choose(n-1);
 });
-applyAnswers();
 
+
+/* ================= INDÍTÁS ================= */
+renderOv(); renderConf(); renderDocs(); renderNext(); renderBud();
+applyAnswers();
+const lastTab=store.get('tarhos-tab','ov'); const tb=document.querySelector(`.tabs button[data-view="${lastTab}"]`); if(tb)tb.click();
 })();
 </script>
